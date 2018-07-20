@@ -1,6 +1,6 @@
-# data2services-download
+# kraken-download
 
-A project to automate download of datasets for the data2services project
+A project to automate download of datasets for the data2services/kraken project
 
 
 
@@ -16,7 +16,7 @@ docker run -it --rm -v /data/download:/data kraken-download /data/config.propert
 
 * Error handling (if a download fail report it and continue with other download)
 * Log (log everything in download.log file)
-* Test if the download properly worked
+* Testing if the download properly worked
 * Use Python to handle errors, test and running the pipeline?
 
 
