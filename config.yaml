@@ -7,7 +7,7 @@ affymetrix_password: "my_password"
 datasets:
   - pharmgkb
   #- drugbank
-  #- affymetrix
+  - affymetrix
 
 #all_datasets=( "affymetrix" "clinicaltrials" "ctd" "dbpedia" "drugbank" "genage" "gendr" "genbank" "goa" "hgnc" 
 #  "interpro" "homologene" "ipi" "irefindex" "kegg" "lsr" "mgi" "ncbigene" "pharmgkb" "pubchem" "refseq" "sider" "taxonomy" "uniprot" "wormbase" )

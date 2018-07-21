@@ -2,19 +2,30 @@
 
 A project to automate download of datasets for the data2services/kraken project
 
+## Run on Docker
 
-
-## Run it
+### Build
 
 ```shell
-docker build -t kraken-download .
-docker run -it --rm -v /data:/data kraken-download
+./build.sh
 ```
+
+### Run
+
+Change the datasets you want to download and databases credentials in the config.yaml file
+
+```shell
+./run.sh config.yaml
+```
+
+### Add a new dataset
+
+* Copy and rename the affymetrix directory, then change the download.sh to download what you want.
+* Add the new dataset to your config.yaml
+* To add a new login and password key just add them in the yaml. Then use them as variables in the download.sh.
 
 ## Todo
 
-* Error handling (if a download fail report it and continue with other download)
-* Log (log everything in download.log file)
 * Testing if the download properly worked
 * Use Python to handle errors, test and running the pipeline?
 

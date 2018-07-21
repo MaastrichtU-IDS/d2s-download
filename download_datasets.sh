@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_DIR=$( "pwd" )
-DDL_WORKDIR=/data/download/datasets
+DDL_WORKDIR=/data/kraken-download/datasets
 
 mkdir -p $DDL_WORKDIR
 
@@ -27,9 +27,9 @@ function parse_yaml {
    download_datasets=( $(sed -n -e 's/^\s*- //p' $1) )
  }
 
-parse_yaml config.yaml
+parse_yaml $1
 echo $download_datasets_string
-echo "Download datasets: ${download_datasets[1]}"
+echo "Download datasets: ${download_datasets}"
 
 for dataset in "${download_datasets[@]}"
 do
