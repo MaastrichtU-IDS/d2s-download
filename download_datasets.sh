@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT_DIR=$( "pwd" )
-DDL_WORKDIR=/data/download/bio2rdf
+DDL_WORKDIR=/data/download/datasets
 
 mkdir -p $DDL_WORKDIR
 
@@ -15,7 +15,7 @@ do
   cd $PROJECT_DIR
   DATASET_DIR=$DDL_WORKDIR/${dataset}
   echo "Downloading dataset $DATASET_DIR"
-  source bio2rdf/${dataset}/download.sh $DATASET_DIR
+  source datasets/${dataset}/download.sh $DATASET_DIR
 done
 
 # Go through the logs to check for error or failed download

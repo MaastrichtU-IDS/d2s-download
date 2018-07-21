@@ -8,8 +8,7 @@ A project to automate download of datasets for the data2services/kraken project
 
 ```shell
 docker build -t kraken-download .
-
-docker run -it --rm -v /data/download:/data kraken-download /data/config.properties
+docker run -it --rm -v /data:/data kraken-download
 ```
 
 ## Todo
@@ -184,7 +183,7 @@ wget --save-cookies cookies.txt \
      --delete-after \
      https://www.thermofisher.com/oam/server/auth_cred_submit
      
-wget -N --load-cookies cookies.txt  https://www.thermofisher.com/file_to_download
+wget --load-cookies cookies.txt  https://www.thermofisher.com/file_to_download
 ```
 
 
