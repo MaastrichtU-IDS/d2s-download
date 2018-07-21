@@ -35,23 +35,11 @@ Change the datasets you want to download and databases credentials in the config
 
 https://github.com/bio2rdf/bio2rdf-scripts
 
-### Simple download
+#### Done
 
-##### FTP
-
-* HGNC
-
-ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc_complete_set.txt.gz
-
-##### HTTP
-
-* UniProt
-
-  http://www.uniprot.org/uniref/?query=*&format=nt&compress=yes
-
-  http://www.uniprot.org/uniparc/?query=*&format=nt&compress=yes
-
-  http://www.uniprot.org/uniprot/?query=active:*&format=nt&compress=yes
+* Affymetrix: csv
+* clinicaltrials: xml
+* ctd: tsv
 
 #### Special
 

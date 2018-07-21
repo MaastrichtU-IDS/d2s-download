@@ -10,16 +10,14 @@ rm -rf *
 
 BASE_URI=http://ctdbase.org/reports/
 
-wget -a download.log -N $BASE_URI
-
-# Extract download links from HTML
-array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar))".*/\1/p') )
+array=( "chem_gene_ixns" "chem_gene_ixn_types" "chemicals_diseases" "chem_go_enriched" "chem_pathways_enriched"
+  "genes_diseases" "genes_pathways" "diseases_pathways" "chemicals" "diseases" "genes" "pathways" )
 
 # Download all extracted links
 for var in "${array[@]}"
 do
   echo "Downloading... $BASE_URI${var}"
-  wget -a download.log -N "$BASE_URI${var}"
+  wget -a download.log "$BASE_URI${var}.tsv.gz"
 done
 
 gzip -d *.gz
