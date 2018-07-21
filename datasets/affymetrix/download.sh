@@ -17,7 +17,7 @@ array=( $(cat genechip-array-annotation-files.html | sed -r -n 's/.*href="((http
 # Log in to the server. This only needs to be done once.
 wget -a download.log --save-cookies cookies.txt \
      --keep-session-cookies \
-     --post-data 'user=vincent.emonet@maastrichtuniversity.nl&password=maasitest12' \
+     --post-data 'user=$affymetrix_login&password=$affymetrix_password' \
      --delete-after \
      https://www.thermofisher.com/oam/server/auth_cred_submit
 
