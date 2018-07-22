@@ -172,7 +172,7 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   Guidelines not clear, which file should we ddl? ftp://ftp.ncbi.nih.gov/repository/UniSTS/
 
-  The txt in ftp.ncbi.nih.gov/repository/UniSTS/UniSTS_MapReports/?
+  The txt in ftp://ftp.ncbi.nih.gov/repository/UniSTS/UniSTS_MapReports/?
 
 # Common operations
 

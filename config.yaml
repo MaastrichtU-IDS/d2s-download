@@ -5,7 +5,7 @@ download_workdir: "/data/kraken-download/datasets"
 drugbank_login: "my_email"
 drugbank_password: "my_password"
 
-AFFYMETRIX_LOGIN: "my_email"
+affymetrix_login: "my_email"
 affymetrix_password: "my_password"
 
 biomodels_login: "my_email"
@@ -15,7 +15,7 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - pdb
+  - drugbank
 
   #- clinicaltrials
   #- pharmgkb

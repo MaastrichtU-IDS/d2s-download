@@ -13,12 +13,12 @@ wget -a download.log -O index.html https://www.thermofisher.com/nl/en/home/life-
 # Extract download links from HTML
 array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 
-echo "Affymetrix login: $AFFYMETRIX_LOGIN"
+echo "Affymetrix login: $affymetrix_login"
 
 # Log in to the server. This only needs to be done once.
 wget -a download.log --save-cookies cookies.txt \
      --keep-session-cookies \
-     --post-data 'user=$AFFYMETRIX_LOGIN&password=$affymetrix_password' \
+     --post-data 'user=$affymetrix_login&password=$affymetrix_password' \
      --delete-after \
      https://www.thermofisher.com/oam/server/auth_cred_submit
 
