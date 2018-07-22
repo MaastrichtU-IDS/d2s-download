@@ -35,15 +35,16 @@ Change the datasets you want to download and databases credentials in the config
 
 https://github.com/bio2rdf/bio2rdf-scripts
 
-22 done
+26 done
 
-7 found but needing validation or more work
+4 found but needing validation or more work
 
-12 not found
+11 not found
 
 #### Done
 
 * Affymetrix: csv
+* Bioportal: xml rdf
 * clinicaltrials: xml
 * ctd: tsv
 * dbpedia: nt
@@ -59,7 +60,10 @@ https://github.com/bio2rdf/bio2rdf-scripts
 * irefindex: txt converted to tsv
 * kegg: tsv only rpair dataset missing (1 out of 14)
 * lsr: google spreadsheet downloaded as csv
+* miriam: xml
 * ncbigene: no extension converted to tsv
+* pdb: xml
+* pharmgkb: tsv (but not exactly the same filename as in the php script)
 * pubchem: xml
 * refseq: gpff
 * sider: tsv
@@ -67,10 +71,6 @@ https://github.com/bio2rdf/bio2rdf-scripts
 * taxonomy: dmp converted to psv (no column name)
 
 #### Done but...
-
-* Bioportal
-
-  Get ontologies from the REST API then we download each ontology
 
 * mgi: csv
 
@@ -86,21 +86,9 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   to https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
 
-* pharmgkb: tsv
-
-  But not exactly the same filename as in the php script
-
 * Drugbank
 
   Problems with authentication (that I need to fix)
-
-* Miriam 
-
-  Should be good but need more testing
-
-* pdb
-
-  It is a maven project to run. I found the download URL and testing the script
 
 * pubmed
 

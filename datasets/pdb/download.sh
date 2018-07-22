@@ -19,18 +19,18 @@ dir_array=( $(cat index.html | sed -r -n 's/.*href="([a-zA-Z0-9]*\/)".*/\1/p') )
 
 for dir in "${dir_array[@]}"
 do
+  cd $1
   echo "Downloading... ${dir}"
   mkdir -p ${dir}
   cd ${dir}
   wget -a download.log -O index.html  $BASE_URL${dir}
-  file_array=( $(cat index.html | sed -r -n 's/.*href="([a-zA-Z0-9]*?(\.zip|\.gz|\.csv|\.tsv|\.tar))".*/\1/p') )
+  file_array=( $(cat index.html | sed -r -n 's/.*href="([a-zA-Z0-9]*?\.xml\.gz)".*/\1/p') )
 
   for file in "${file_array[@]}"
   do
+    echo "Download file... $BASE_URL${dir}${file}"
     wget -a download.log $BASE_URL${dir}${file}
   done
-
-  #<a href="10gs.xml.gz"
 done
 
 find . -name "*.gz" -exec gzip -d  {} +
