@@ -37,9 +37,11 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
 26 done
 
-4 found but needing validation or more work
+5 found but needing validation 
 
-11 not found
+3 need  more work
+
+7 not found
 
 #### Done
 
@@ -70,15 +72,7 @@ https://github.com/bio2rdf/bio2rdf-scripts
 * sgd: tab converted to tsv. Mapping file missing. Something on BioPortal
 * taxonomy: dmp converted to psv (no column name)
 
-#### Done but...
-
-* mgi: csv
-
-  To get the column we have to extract them from the HTML and add it on the top of the csv
-
-  http://www.informatics.jax.org/downloads/reports/index.html
-
-  Use XPath xslt to extract
+#### Done but need validation
 
 * ndc: txt converted to tsv
 
@@ -86,45 +80,25 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   to https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
 
-* Drugbank
+* BioModels: xml rdf
 
-  Problems with authentication (that I need to fix)
+  Problem: can't find the file to download in the provided URL: http://www.ebi.ac.uk/biomodels/models-main/
 
-* pubmed
+  But I found a FTP server ftp://ftp.ebi.ac.uk/pub/databases/biomodels/ with Biomodels database as RDF file:
 
-  Nothing interesting at the given address ftp://ftp.nlm.nih.gov/nlmdata
+  ftp://ftp.ebi.ac.uk/pub/databases/biomodels/releases/2017-06-26/BioModels_Database-r31_pub-rdf_files.tar.bz2
 
-  But here it seems good ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline in xml
+* pathwaycommons: xml, owl...
 
-#### Not found
+  It is saying that I should download those files: `homo-sapiens|hprd|humancyc|nci-nature|panther-pathway|phosphositeplus|reactome` at http://www.pathwaycommons.org/pc2/downloads/
 
-* BioModels
+  But the URL is returning a 404. 
 
-  Login: vincent.emonet@maastrichtuniversity.nl
+  I found the download endpoint to be http://www.pathwaycommons.org/archives/PC2/v10/ . With only few of the requested files are there (humancyc, panther, reactome) in xml, owl or others but no JSON file
 
-  Pw: maasitest12
+  What should I do?
 
-  Problem: can't find the file to download
-
-  http://www.ebi.ac.uk/biomodels/models-main/
-
-* chembl
-
-  MySQL Database connection
-
-* dbsnp
-
-  Nothing found. Need an ID to complete the download URL
-
-  ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/snp_omimvar.txt not found
-
-  Maybe in ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/eLinks/ ?
-
-* linkedSPLs
-
-  A lot of directories, with nt, py, xml rdf. And instructions not clear
-
-* mesh
+* mesh: nt
 
   We can find n-triples here:
 
@@ -138,6 +112,46 @@ https://github.com/bio2rdf/bio2rdf-scripts
   ftp://nlmpubs.nlm.nih.gov/online/mesh/.asciimesh/
   ```
 
+* pubmed: xml
+
+  Nothing interesting at the given address ftp://ftp.nlm.nih.gov/nlmdata
+
+  But here it seems good ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline in xml
+
+#### Need more work
+
+* mgi: csv
+
+  To get the column we have to extract them from the HTML and add it on the top of the csv
+
+  http://www.informatics.jax.org/downloads/reports/index.html
+
+  Use XPath xslt to extract
+
+* Drugbank
+
+  Problems with authentication (that I need to fix)
+
+* chembl: sql
+
+  In php: MySQL Database connection from ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest
+
+  New in .ttl RDF: ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBL-RDF/latest
+
+#### Not found
+
+* dbsnp
+
+  Nothing found. Need an ID to complete the download URL
+
+  ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/snp_omimvar.txt not found
+
+  Maybe in ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/eLinks/ ?
+
+* linkedSPLs
+
+  A lot of directories, with nt, py, xml rdf. And instructions not clear
+
 * omim
 
   I applied to get an account, waiting for an answer
@@ -145,16 +159,6 @@ https://github.com/bio2rdf/bio2rdf-scripts
 * orphanet
 
   Need a license http://www.orphadata.org/
-
-* pathwaycommons
-
-  It is saying that I should download those files: `homo-sapiens|hprd|humancyc|nci-nature|panther-pathway|phosphositeplus|reactome` at http://www.pathwaycommons.org/pc2/downloads/
-
-  But the URL is returning a 404. 
-
-  I found the download endpoint to be http://www.pathwaycommons.org/archives/PC2/v10/ . With only few of the requested files are there (humancyc, panther, reactome) in xml, owl or others but no JSON file
-
-  What should I do?
 
 * sabiork
 
@@ -183,7 +187,7 @@ array=( $(cat index.html | sed -r -n 's/.*((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.t
 
 for var in "${array[@]}"
 do
-  wget -N ${var}
+  wget -a download.log ${var}
 done
 ```
 
@@ -222,6 +226,12 @@ Gzip are for single files (unless it is .tar.gz), so no need to put extract in d
 
 ```shell
 find . -name "*.gz" -exec gzip -d  {} +
+```
+
+##### Bz2
+
+```shell
+find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;
 ```
 
 ### Rename extensions

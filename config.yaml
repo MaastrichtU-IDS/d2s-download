@@ -15,13 +15,15 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - drugbank
+  - chembl
 
   #- clinicaltrials
   #- pharmgkb
   #- drugbank
   #- affymetrix
-  #- biportal
+  #- biomodels
+  #- bioportal
+  #- chembl
   #- ctd
   #- dbpedia
   #- drugbank
