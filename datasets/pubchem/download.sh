@@ -9,7 +9,7 @@ cd $1
 rm -rf *
 chmod -R 777 *
 
-#databases=( "Compound/CURRENT-Full/XML/" "Substance/CURRENT-Full/XML/" "Bioassay/XML/")
+databases=( "Compound/CURRENT-Full/XML/" "Substance/CURRENT-Full/XML/" "Bioassay/XML/")
 
 for database in "${databases[@]}"
 do

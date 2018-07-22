@@ -12,3 +12,4 @@ rm -rf *
 wget -a download.log ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdmp.zip
 
 unzip -o \*.zip
+rename s/\.dmp/.psv/ *.psv

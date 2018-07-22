@@ -11,3 +11,4 @@ rm -rf *
 wget -a download.log https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
 
 unzip -o \*.zip
+rename s/\.txt/.tsv/ *.txt

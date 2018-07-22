@@ -21,3 +21,5 @@ done
 
 
 find . -name "*.gz" -exec gzip -d  {} +
+# Add tsv extension
+find ./gene* -type f -exec mv {} {}.tsv \;

@@ -8,6 +8,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
+# A csv file and release.html
 wget -a download.log http://genomics.senescence.info/genes/human_genes.zip
 
 wget -a download.log http://genomics.senescence.info/genes/models_genes.zip

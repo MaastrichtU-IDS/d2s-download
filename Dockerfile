@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -y
-RUN apt-get install -y apt-utils rename gzip unzip wget
+RUN apt-get install -y apt-utils rename gzip unzip wget jq
 
 COPY datasets/ /datasets/
 COPY download_datasets.sh /download_datasets.sh

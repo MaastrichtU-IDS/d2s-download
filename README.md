@@ -35,15 +35,44 @@ Change the datasets you want to download and databases credentials in the config
 
 https://github.com/bio2rdf/bio2rdf-scripts
 
+22 done
+
+7 found but needing validation or more work
+
+12 not found
+
 #### Done
 
 * Affymetrix: csv
 * clinicaltrials: xml
 * ctd: tsv
+* dbpedia: nt
+* genage: csv
+* genbank: seq
+* gendr: csv
+* goa: gpa
+* hgnc: txt converted to tsv
+* homologene: data (each column seems separated by spaces, no column name)
+* interpro: xml
+* ipi: xrefs (tsv without column name)
+* iproclass: tb
+* irefindex: txt converted to tsv
+* kegg: tsv only rpair dataset missing (1 out of 14)
+* lsr: google spreadsheet downloaded as csv
+* ncbigene: no extension converted to tsv
+* pubchem: xml
+* refseq: gpff
+* sider: tsv
+* sgd: tab converted to tsv. Mapping file missing. Something on BioPortal
+* taxonomy: dmp converted to psv (no column name)
 
-#### Special
+#### Done but...
 
-* mgi
+* Bioportal
+
+  Get ontologies from the REST API then we download each ontology
+
+* mgi: csv
 
   To get the column we have to extract them from the HTML and add it on the top of the csv
 
@@ -51,13 +80,35 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   Use XPath xslt to extract
 
-* ndc
+* ndc: txt converted to tsv
 
   Not sure this is the right URL. From http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip
 
   to https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
 
-#### Failed download
+* pharmgkb: tsv
+
+  But not exactly the same filename as in the php script
+
+* Drugbank
+
+  Problems with authentication (that I need to fix)
+
+* Miriam 
+
+  Should be good but need more testing
+
+* pdb
+
+  It is a maven project to run. I found the download URL and testing the script
+
+* pubmed
+
+  Nothing interesting at the given address ftp://ftp.nlm.nih.gov/nlmdata
+
+  But here it seems good ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline in xml
+
+#### Not found
 
 * BioModels
 
@@ -69,25 +120,21 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   http://www.ebi.ac.uk/biomodels/models-main/
 
-* Bioportal
-
-  Really different: we get ontologies from the REST API then we download each ontology
-
 * chembl
 
   MySQL Database connection
 
 * dbsnp
 
-  Nothing found. Need an ID to complete URL
+  Nothing found. Need an ID to complete the download URL
 
-* Drugbank
+  ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/snp_omimvar.txt not found
 
-  Problems with authentication
+  Maybe in ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/eLinks/ ?
 
 * linkedSPLs
 
-  A lot of directories, don't know what to do
+  A lot of directories, with nt, py, xml rdf. And instructions not clear
 
 * mesh
 
@@ -103,10 +150,6 @@ https://github.com/bio2rdf/bio2rdf-scripts
   ftp://nlmpubs.nlm.nih.gov/online/mesh/.asciimesh/
   ```
 
-* Miriam 
-
-  site could not be reached
-
 * omim
 
   I applied to get an account, waiting for an answer
@@ -121,41 +164,27 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   But the URL is returning a 404. 
 
-  I found the download endpoint to be http://www.pathwaycommons.org/archives/PC2/v10/ .
+  I found the download endpoint to be http://www.pathwaycommons.org/archives/PC2/v10/ . With only few of the requested files are there (humancyc, panther, reactome) in xml, owl or others but no JSON file
 
   What should I do?
 
-* pdb
-
-  It is a maven project to run
-
-* pubmed
-
-  Nothing interesting at the given address ftp://ftp.nlm.nih.gov/nlmdata
-
-  But here it seems good ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline
-
 * sabiork
 
-  REST API, not clear
+  REST API, not clear. Example of how it seems to be queried in the php
 
   http://sabiork.h-its.org/sabioRestWebServices/
 
-* sgd
-
-  On BioPortal
+  http://sabiork.h-its.org/sabioRestWebServices/searchKineticLaws/biopax?q=SabioReactionID:
 
 * toxkb
 
-  Scripts written in ruby. Some files where found but not the toxcast and toxnet ones
+  Not clear which file to download. A lot of scripts written in ruby. 
 
 * Unists
 
-  Guidelines not clear, which file should we ddl?
+  Guidelines not clear, which file should we ddl? ftp://ftp.ncbi.nih.gov/repository/UniSTS/
 
-  ftp://ftp.ncbi.nih.gov/repository/UniSTS/
-
-  
+  The txt in ftp.ncbi.nih.gov/repository/UniSTS/UniSTS_MapReports/?
 
 # Common operations
 
@@ -207,10 +236,16 @@ Gzip are for single files (unless it is .tar.gz), so no need to put extract in d
 find . -name "*.gz" -exec gzip -d  {} +
 ```
 
-
-
 ### Rename extensions
 
 ```shell
 rename s/\.txt/.tsv/ *.txt
 ```
+
+### Parse JSON
+
+```shell
+# [] to iterate over array
+cat ontologies.json | jq -r '.[].links.download'
+```
+
