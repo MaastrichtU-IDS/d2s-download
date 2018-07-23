@@ -37,9 +37,9 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
 26 done
 
-5 found but needing validation 
+6 found but needing validation 
 
-3 need  more work
+2 need  more work
 
 7 not found
 
@@ -118,6 +118,12 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
   But here it seems good ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline in xml
 
+* chembl: sql
+
+  In php: MySQL Database connection from ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest
+
+  New in .ttl RDF: ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBL-RDF/latest
+
 #### Need more work
 
 * mgi: csv
@@ -130,13 +136,8 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
 * Drugbank
 
-  Problems with authentication (that I need to fix)
+  Problems with authentication
 
-* chembl: sql
-
-  In php: MySQL Database connection from ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest
-
-  New in .ttl RDF: ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBL-RDF/latest
 
 #### Not found
 
