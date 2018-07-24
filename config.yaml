@@ -15,7 +15,7 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - pubchem
+  - chembl
 
   #- clinicaltrials
   #- pharmgkb

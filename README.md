@@ -189,9 +189,12 @@ Classify aggregators (iproclass, irefindex) vs descriptive db
 
 # Common operations
 
-### Download files recursively in FTP
+### Download files with wget
+
+* `-a download.log` redirect console output to file
 
 * `-r` for recursive download
+* `-O index.html` rename the downloaded file 
 * `-A` to only ddl ttl.gz files. 
 * `-nH` to remove the URL from filename (and keep only directories)
 * `--cut-dirs=2` to remove dirs from filename
@@ -202,7 +205,14 @@ Classify aggregators (iproclass, irefindex) vs descriptive db
 * `-P compound` save all dir and subdir downloaded by this wget to this dir
 
 ```shell
-wget -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
+# Rename single file download
+wget -a download.log -O index.html ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBL-RDF/latest/
+
+# Download recursively all files in ftp that have the given extension
+wget -a download.log -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/pubchem/
+
+# To properly name the dir created during download
+wget -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
 # -nH to remove `ftp.ncbi.nlm.nih.gov`
 # --cut-dirs=3 to remove `pubchem/RDF/compound`
 # -P to store in the compound dir
