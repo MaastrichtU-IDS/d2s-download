@@ -15,7 +15,7 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - chembl
+  - wikipathways
 
   #- clinicaltrials
   #- pharmgkb
@@ -27,6 +27,7 @@ datasets:
   #- ctd
   #- dbpedia
   #- drugbank
+  #- drugcentral
   #- genage
   #- gendr 
   #- genbank 

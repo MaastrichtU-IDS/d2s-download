@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-# Download interpro https://www.ebi.ac.uk/interpro/download.html
-wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
+# Download drugcentral http://drugcentral.org/download
+wget -a download.log http://iridium.noip.me/drug.target.interaction.tsv.gz
 
 find . -name "*.gz" -exec gzip -d  {} +

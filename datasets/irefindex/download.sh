@@ -10,13 +10,14 @@ rm -rf *
 
 # The web services might be updated more regurlarly
 BASE_URI="http://irefindex.org/download/irefindex/data/current/psi_mitab/MITAB2.6/"
-TO_DDL="All|10090|10116|4932|559292|562|6239|7227|9606"
+# Download separately the databases: "10090|10116|4932|559292|562|6239|7227|9606"
 
 wget -a download.log $BASE_URI
 
-array=( $(cat index.html | sed -r -n 's/.*href="((All|10090|10116|4932|559292|562|6239|7227|9606)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
+# Only download All http://irefindex.org/wiki/index.php?title=README_MITAB2.6_for_iRefIndex_15.0#Directory_contents
+array=( $(cat index.html | sed -r -n 's/.*href="((All)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 
-# Download all extracted files
+# Download http://irefindex.org/download/irefindex/data/archive/release_15.0/psi_mitab/MITAB2.6/All.mitab.$DATE.txt.zip
 for var in "${array[@]}"
 do
   echo "Downloading... ${var}"

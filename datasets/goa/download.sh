@@ -10,6 +10,7 @@ mkdir -p $TARGET_DIR
 cd $TARGET_DIR
 rm -rf *
 
+# GOA
 BASE_URI="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/"
 
 dir_to_download=( "ARABIDOPSIS" "CHICKEN" "COW" "DICTY" "DOG" "FLY" "HUMAN" "MOUSE" "PDB" "PIG" "RAT" "UNIPROT" "WORM" "YEAST" "ZEBRAFISH" )
@@ -22,13 +23,8 @@ do
   echo "Downloading... $BASE_URI${dir}/"
   wget -a download.log "$BASE_URI${dir}/"
 
-  #<a href="ftp://ftp.ebi.ac.uk:21/pub/databases/GO/goa/ARABIDOPSIS/goa_arabidopsis.gpa.gz"
-  array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
-
-  for file in "${array[@]}"
-  do
-    wget -a download.log ${file}
-  done
+  # Download only gaf files
+  wget -a download.log -r -A gaf.gz -nH --cut-dirs=5 "$BASE_URI${dir}/"
 done
 
 cd $TARGET_DIR

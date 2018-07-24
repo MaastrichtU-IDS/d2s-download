@@ -8,6 +8,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
+# Uniprot
 BASE_URI=http://www.uniprot.org/
 
 array=( "uniprot" "uniparc" "uniref" "citations" "keywords" "locations" "taxonomy" "tissues" )
@@ -15,7 +16,7 @@ array=( "uniprot" "uniparc" "uniref" "citations" "keywords" "locations" "taxonom
 # Use URL slightly different for uniprot database (query=active:)?
 #wget -a download.log "http://www.uniprot.org/uniprot/?query=active:*&format=nt&compress=yes" --output-document=uniprot.n3.gz
 
-# Download all extracted links
+# Download all extracted links by requesting Uniprot for all triples
 for var in "${array[@]}"
 do
   echo "Downloading... $BASE_URI${var}/?query=*&format=nt&compress=yes"

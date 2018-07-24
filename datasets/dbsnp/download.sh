@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-# Download interpro https://www.ebi.ac.uk/interpro/download.html
-wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
+# dbSNP 
+wget -a download.log -r -A gz -nH --cut-dirs=3 ftp://ftp.ncbi.nlm.nih.gov/snp/Entrez/eLinks/
 
 find . -name "*.gz" -exec gzip -d  {} +
