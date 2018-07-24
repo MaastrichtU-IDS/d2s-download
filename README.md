@@ -185,11 +185,30 @@ Classify aggregators (iproclass, irefindex) vs descriptive db
 
 * Unists
 
-  Guidelines not clear, which file should we ddl? ftp://ftp.ncbi.nih.gov/repository/UniSTS/
-
   The txt in ftp://ftp.ncbi.nih.gov/repository/UniSTS/UniSTS_MapReports/?
 
 # Common operations
+
+### Download files recursively in FTP
+
+* `-r` for recursive download
+* `-A` to only ddl ttl.gz files. 
+* `-nH` to remove the URL from filename (and keep only directories)
+* `--cut-dirs=2` to remove dirs from filename
+* Example: ftp.xemacs.org/pub/xemacs/
+  * `-nH` : pub/xemacs/
+  * `-nH --cut-dirs=1` : xemacs/
+  * `-nH --cut-dirs=2` : .
+* `-P compound` save all dir and subdir downloaded by this wget to this dir
+
+```shell
+wget -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
+# -nH to remove `ftp.ncbi.nlm.nih.gov`
+# --cut-dirs=3 to remove `pubchem/RDF/compound`
+# -P to store in the compound dir
+```
+
+
 
 ### Extract and iterate over files URL in HTML
 

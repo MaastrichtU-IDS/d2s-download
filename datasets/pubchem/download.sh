@@ -9,31 +9,30 @@ cd $1
 rm -rf *
 
 # RDF files can be found here: ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/
+# Doc: https://pubchemdocs.ncbi.nlm.nih.gov/rdf$_6
 
-# More info: https://pubchemdocs.ncbi.nlm.nih.gov/rdf
-# wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/substance
+# Metadata about Pubchem datasets
+wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/void.ttl
 
+# Download only general files from compound (no 2D/3D similarity)
+wget -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
 
-databases=( "Compound/CURRENT-Full/XML/" "Substance/CURRENT-Full/XML/" "Bioassay/XML/")
+# Single file for substance and bioassay
+wget -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/substance
+wget -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/bioassay
 
-for database in "${databases[@]}"
-do
-  DATABASE_DIR=$1/$database
-  mkdir -p $DATABASE_DIR
-  cd $DATABASE_DIR
-  wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubchem/${database}/
-
-  # Extract download links from HTML
-  array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
-
-  # Download all extracted links
-  for var in "${array[@]}"
-  do
-    echo "Downloading... ${var}"
-    wget -a download.log ${var}
-  done
-
-done
+# Other RDF data from Pubchem
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/descriptor
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/synonym
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/inchikey
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/measuregroup
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/endpoint
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/protein
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/biosystem
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/conserveddomain
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/gene
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/source
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/concept
+#wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/reference
 
 find . -name "*.gz" -exec gzip -d  {} +
-find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
