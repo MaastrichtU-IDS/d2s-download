@@ -15,7 +15,7 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - wikipathways
+  - sabiork
 
   #- clinicaltrials
   #- pharmgkb
@@ -49,4 +49,5 @@ datasets:
   #- sider 
   #- taxonomy 
   #- uniprot 
+  #- wikipathways
   #- wormbase

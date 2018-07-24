@@ -268,6 +268,14 @@ Gzip are for single files (unless it is .tar.gz), so no need to put extract in d
 find . -name "*.gz" -exec gzip -d  {} +
 ```
 
+##### Untar
+
+```shell
+# Recursively untar all files in actual dir
+find . -name "*.tgz" -exec tar -xzvf {} \;
+find . -name "*.tar.gz" -exec tar -xzvf {} \;
+```
+
 ##### Bz2
 
 ```shell
