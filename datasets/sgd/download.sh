@@ -26,4 +26,6 @@ do
 done
 
 cd $TARGET_DIR
+find . -name "*.gz" -exec gzip -d  {} +
 rename s/\.tab/.tsv/ *.tab
+rename s/\.sgd/.tsv/ *.sgd

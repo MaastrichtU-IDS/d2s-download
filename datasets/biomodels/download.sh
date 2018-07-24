@@ -11,4 +11,7 @@ rm -rf *
 # Not the one from the php script, but it is the BioModels database in RDF
 wget -a download.log "ftp://ftp.ebi.ac.uk/pub/databases/biomodels/releases/2017-06-26/BioModels_Database-r31_pub-rdf_files.tar.bz2"
 
+# New dataset URL. DOWNLOAD THIS ONE
+#ftp://ftp.ebi.ac.uk/pub/databases/biomodels/omicsdi/BioModelsOmicsDIExport.xml
+
 find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;

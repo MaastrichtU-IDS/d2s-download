@@ -7,7 +7,12 @@ fi
 mkdir -p $1
 cd $1
 rm -rf *
-chmod -R 777 *
+
+# RDF files can be found here: ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/
+
+# More info: https://pubchemdocs.ncbi.nlm.nih.gov/rdf
+# wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/substance
+
 
 databases=( "Compound/CURRENT-Full/XML/" "Substance/CURRENT-Full/XML/" "Bioassay/XML/")
 

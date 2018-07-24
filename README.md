@@ -33,6 +33,8 @@ Change the datasets you want to download and databases credentials in the config
 
 ## Extract bio2rdf URLs
 
+See 
+
 https://github.com/bio2rdf/bio2rdf-scripts
 
 26 done
@@ -43,30 +45,38 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
 7 not found
 
+
+
+Link to exact license file
+
+Check PSICQUIC because a lot of references (irefindex)
+
+Classify aggregators (iproclass, irefindex) vs descriptive db
+
 #### Done
 
 * Affymetrix: csv
 * Bioportal: xml rdf
 * clinicaltrials: xml
 * ctd: tsv
-* dbpedia: nt
+* dbpedia: nt. Whats the diffrence with wikidata?
 * genage: csv
 * genbank: seq
 * gendr: csv
-* goa: gpa
+* goa: gpa (, careful special col)
 * hgnc: txt converted to tsv
-* homologene: data (each column seems separated by spaces, no column name)
+* homologene: data (each column seems separated by spaces, no column name). Also in XML format with more infos
 * interpro: xml
-* ipi: xrefs (tsv without column name)
-* iproclass: tb
+* ipi: xrefs (tsv without column name). To remove. Not updated anymore
+* iproclass: tb. Todo: ddl also column readme file
 * irefindex: txt converted to tsv
-* kegg: tsv only rpair dataset missing (1 out of 14)
-* lsr: google spreadsheet downloaded as csv
-* miriam: xml
+* kegg: tsv only rpair dataset missing (1 out of 14). Once ddled get the file under the ID `ds:H00001`
+* lsr: google spreadsheet downloaded as csv. Used to build Bio2RDF rdf, will use https://prefixcommons.org/?q=id:go later
+* miriam: xml. Will be handled by prefixcommons
 * ncbigene: no extension converted to tsv
-* pdb: xml
+* pdb: xml. Todo: setup rsync
 * pharmgkb: tsv (but not exactly the same filename as in the php script)
-* pubchem: xml
+* pubchem: xml. Can be download directly in RDF. RDF files can be found here: ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/
 * refseq: gpff
 * sider: tsv
 * sgd: tab converted to tsv. Mapping file missing. Something on BioPortal
@@ -74,11 +84,11 @@ https://github.com/bio2rdf/bio2rdf-scripts
 
 #### Done but need validation
 
-* ndc: txt converted to tsv
+* ndc: txt converted to tsv. Not important anymore (only a few infos in it)
 
   Not sure this is the right URL. From http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip
 
-  to https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
+  to https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip from https://www.fda.gov/drugs/informationondrugs/ucm079750.htm
 
 * BioModels: xml rdf
 

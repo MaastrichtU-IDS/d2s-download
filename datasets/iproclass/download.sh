@@ -8,7 +8,8 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-BASE_URI="ftp://ftp.ebi.ac.uk/pub/databases/IPI/last_release/current/"
+
+# Download this file for column: ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.readme
 
 wget -a download.log ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.gz
 

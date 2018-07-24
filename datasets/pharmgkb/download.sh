@@ -8,6 +8,9 @@ mkdir -p $1
 cd $1
 rm -rf *
 
+
+# The Licensed Annotation Data are intereting but need license. How to use them in the license scope? License will changed after august. Michel has an account
+# https://www.pharmgkb.org/downloads
 BASE_URI=https://api.pharmgkb.org/v1/download/file/data/
 array=( "dosingGuidelines.json.zip" "drugLabels.zip" "pathways-biopax.zip" "pathways-tsv.zip" "clinicalVariants.zip" "genes.zip"
 "variants.zip" "phenotypes.zip" "drugs.zip" "chemicals.zip" )
