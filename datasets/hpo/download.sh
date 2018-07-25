@@ -7,6 +7,5 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log -r -A gpff.gz -nH --cut-dirs=3 ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/
-
-find . -name "*.gz" -exec gzip -d  {} +
+# HPO Human Phemotype Ontology
+wget -a download.log http://purl.obolibrary.org/obo/hp.owl
