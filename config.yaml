@@ -15,7 +15,43 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - goa
+  - clinicaltrials
+  - pubmed
+  - drugcentral
+  - interpro
+  - ncbigene
+  - pharmgkb
+  - pubchem
+  - stitch
+  - string
+  - Biomodels
+  - Bioportal
+  - bioproject
+  - chebi
+  - chembl
+  - clinvar
+  - dailymed
+  - dbsnp
+  - disgenet
+  - do
+  - ensembl
+  - atlas
+  - go
+  - hpo
+  - irefindex
+  - kegg
+  - mesh
+  - mpo
+  - ndc
+  - omia
+  - pathwaycommons
+  - pdb
+  - reactome
+  - refseq
+  - sabiork
+  - uberon
+  - uniprot
+  - wikipathways
 
   #- clinicaltrials
   #- pharmgkb
