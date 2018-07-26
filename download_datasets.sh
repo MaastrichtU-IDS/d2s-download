@@ -38,10 +38,11 @@ cd $download_workdir
 grep -rl --include \*.log ERROR > download_failed.log
 grep -rl --include \*.log failed >> download_failed.log
 
+# Print a nice kraken in ascii
 cat $PROJECT_DIR/ascii_kraken.txt
 
 echo " "
-echo "Download done!"
+echo "Download complete!"
 echo "Check out failed download at $download_workdir/download_failed.log"
-echo "    Failed download"
+echo "    Failed download:"
 cat download_failed.log

@@ -15,3 +15,6 @@ wget -a download.log ftp://public.nlm.nih.gov/nlmdata/.dailymed/dm_spl_release_h
 
 # Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
+
+# Unzip the zip files that were in the previous zip file
+find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;

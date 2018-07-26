@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ -z "$1" ]]; then
-  echo "Provide a target directory to store downloaded files as argument. E.g.: /data/download/bio2rdf"
+  echo "Provide a target directory to store downloaded files as argument. E.g.: /data/kraken-download/datasets"
   exit 1
 fi
 
@@ -11,9 +11,18 @@ rm -rf *
 BASE_URI="http://rest.kegg.jp/list/"
 array=( "pathway" "disease" "drug" "compound" "genome" "genes" "enzyme" "reaction" "ko" "module" "environ" "glycan" "rclass" )
 
-# Download all gene an species files
+# Get all IDs to download
 for database in "${array[@]}"
 do
-  echo "Downloading Gene... ${database}"
-  wget -a download.log $BASE_URI$database -O "$database.tsv"
+  echo "Downloading database... ${database}"
+  wget -a download.log $BASE_URI$database -O "$database.html"
+
+  # Download each ID as seq file
+  ids=( $(cat $database.html | sed -r -n 's/(gn:.*?)[\s].*/\1/p') )
+
+  for id in "${ids[@]}"
+  do
+    echo "Downloading ID... ${id}"
+    wget -a download.log http://rest.kegg.jp/get/#{id}
+  done
 done

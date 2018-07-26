@@ -1,0 +1,46 @@
+#!/bin/bash
+if [[ -z "$1" ]]; then
+  echo "Provide a target directory to store downloaded files as argument. E.g.: /data/kraken-download/datasets"
+  exit 1
+fi
+mkdir -p $1
+cd $1
+rm -rf *
+
+
+# Stitch: http://stitch.embl.de/cgi/download.pl?UserId=xxJIEBstyfor&sessionId=Bbd8XHc5U1R1
+
+# CHEMICAL NETWORK
+
+# Chemical-chemical links
+wget -a download.log http://stitch.embl.de/download/chemical_chemical.links.v5.0.tsv.gz
+
+# Protein-chemical links. Taking only for human specie at the moment to make it lighter (too big otherwise)
+wget -a download.log http://stitch.embl.de/download/protein_chemical.links.v5.0/9606.protein_chemical.links.v5.0.tsv.gz
+# Complete 30G version: wget -a download.log http://stitch.embl.de/download/protein_chemical.links.v5.0.tsv.gz
+wget -a download.log http://stitch.embl.de/download/protein_chemical.links.transfer.v5.0/9606.protein_chemical.links.transfer.v5.0.tsv.gz
+# Complete 30G version: wget -a download.log http://stitch.embl.de/download/protein_chemical.links.transfer.v5.0.tsv.gz
+
+# Interaction types for links 
+wget -a download.log http://stitch.embl.de/download/actions.v5.0/9606.actions.v5.0.tsv.gz
+# Complete 66G version: wget -a download.log http://stitch.embl.de/download/actions.v5.0.tsv.gz
+
+
+
+# GENERAL FLATFILES
+
+# names and SMILES strings of STITCH's chemicals (2G)
+wget -a download.log http://stitch.embl.de/download/chemicals.v5.0.tsv.gz
+
+# InChIKeys for STITCH compounds (for 'flat' and stereo-specific compounds) (1.3G)
+wget -a download.log http://stitch.embl.de/download/chemicals.inchikeys.v5.0.tsv.gz
+
+# aliases (synonyms) for chemicals (1.5G)
+wget -a download.log http://stitch.embl.de/download/chemical.aliases.v5.0.tsv.gz
+
+# links to other chemical databases (2G)
+wget -a download.log http://stitch.embl.de/download/chemical.sources.v5.0.tsv.gz
+
+
+
+find . -name "*.gz" -exec gzip -d  {} +

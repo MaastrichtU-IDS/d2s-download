@@ -211,6 +211,8 @@ wget -a download.log -O index.html ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEM
 # Download recursively all files in ftp that have the given extension
 wget -a download.log -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/pubchem/
 
+wget -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/snp/
+
 # To properly name the dir created during download
 wget -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
 # -nH to remove `ftp.ncbi.nlm.nih.gov`
@@ -272,8 +274,8 @@ find . -name "*.gz" -exec gzip -d  {} +
 
 ```shell
 # Recursively untar all files in actual dir
-find . -name "*.tgz" -exec tar -xzvf {} \;
 find . -name "*.tar.gz" -exec tar -xzvf {} \;
+find . -name "*.tgz" -exec tar -xzvf {} \;
 ```
 
 ##### Bz2
