@@ -19,6 +19,28 @@ wget -a download.log --save-cookies cookies.txt \
      --delete-after \
      https://www.thermofisher.com/oam/server/auth_cred_submit
 
+# Login failed in auth_cred_submit
+wget --save-cookies cookies.txt \
+     --keep-session-cookies \
+     --post-data 'user=vincent.emonet@maastrichtuniversity.nl&password=maasitest12' \
+     https://www.thermofisher.com/oam/server/auth_cred_submit
+
+# Postman wget (returns 200 on Postman)
+wget --method POST \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header 'Cache-Control: no-cache' \
+  --header 'Postman-Token: dc889021-6bc4-4760-8095-1bd9b41bdc7e' \
+  --body-data 'username=vincent.emonet%40maastrichtuniversity.nl&password=maasitest12' \
+  - https://www.thermofisher.com/oam/server/auth_cred_submit
+
+# Postman cURL
+curl -X POST \
+  https://www.thermofisher.com/oam/server/auth_cred_submit \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Postman-Token: cd3c59ba-b71d-4eaa-ac40-2b0239f07804' \
+  -d 'username=vincent.emonet%40maastrichtuniversity.nl&password=maasitest12'
+
 # Download all extracted links
 for var in "${array[@]}"
 do
