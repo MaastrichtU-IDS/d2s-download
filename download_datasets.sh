@@ -53,6 +53,7 @@ mkdir -p "$download_workdir"
 for dataset in "${download_datasets[@]}"
 do
   DATASET_DIR=$download_workdir/${dataset}
+  echo "---------------------------------"
   echo "Downloading dataset to $DATASET_DIR"
   cd $PROJECT_DIR
   source datasets/${dataset}/download.sh $DATASET_DIR
@@ -70,5 +71,6 @@ cat $PROJECT_DIR/ascii_kraken.txt
 echo " "
 echo "Download complete!"
 echo "Check out failed download at $download_workdir/download_failed.log"
+echo "---------------------------------"
 echo "    Failed download:"
 cat download_failed.log
