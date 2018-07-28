@@ -10,9 +10,10 @@ rm -rf *
 BASE_URI=https://archive.monarchinitiative.org/latest/ttl
 
 # 74 files downloaded. Each dataset and a small file to describe the dataset. So 32 datasets
-
+# Download file list in HTML
 wget -a download.log -O index.html "$BASE_URI/"
 
+# Extract ttl filename from HTML
 array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.(\.ttl|\.nt)).*/\1/p') )
 
 # Remove test files and wormbase.ttl
