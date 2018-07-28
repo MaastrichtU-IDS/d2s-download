@@ -70,7 +70,7 @@ wget -a download.log -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/pubchem/
 wget -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/snp/
 
 # To properly name the dir created during download
-wget -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
+wget -a download.log -r -A ttl.gz -R reject_this -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
 # -nH to remove `ftp.ncbi.nlm.nih.gov`
 # --cut-dirs=3 to remove `pubchem/RDF/compound`
 # -P to store in the compound dir

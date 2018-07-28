@@ -1,28 +1,54 @@
 #!/bin/bash
+DELETE_PREVIOUS_DDL=false
+# Iterate over arguments
+for arg in "$@"
+do
+    if [ "$arg" = "-d" ]; then 
+      DELETE_PREVIOUS_DDL=true
+    else
+      YAML_PATH=$arg
+    fi
+done
+if [[ -z "$YAML_PATH" ]]; then
+  echo "Provide a config.yaml file as argument. E.g.: /data/config.yaml. You can use the flag -d to delete all previous downloads."
+  exit 1
+fi
 
 # Parse yaml
-param_array=( $(cat $1 | sed -r -n 's/([^#]*?):(.+)/\1\2/p') )
+echo "---------------------------------"
+echo "  YAML configuration:"
+param_array=( $(cat $YAML_PATH | sed -r -n 's/([^#]*?):(.+)/\1\2/p') )
 i=0  
 while [ $i -le ${#param_array[@]} ]  
 do  
-    VAR_NAME=${param_array[$i]}
-    i=$(( $i + 1 ))
-    echo "$VAR_NAME = ${param_array[$i]}"
-    eval "$VAR_NAME"="\"${param_array[$i]}\""
-    i=$(( $i + 1 ))
+  VAR_NAME=${param_array[$i]}
+  i=$(( $i + 1 ))
+  if [[ -z "$VAR_NAME" ]]; then
+    continue
+  fi
+  echo "$VAR_NAME = ${param_array[$i]}"
+  eval "$VAR_NAME"="\"${param_array[$i]}\""
+  # Show an error but works at naming the var with another var
+  i=$(( $i + 1 ))
 done
 # Careful: it takes all lines starting with a "-". So no other array
-download_datasets=( $(sed -n -e 's/^\s*- //p' $1) )
+download_datasets=( $(sed -n -e 's/^\s*- //p' $YAML_PATH) )
 
 PROJECT_DIR=$( "pwd" )
 
 echo "Download datasets: ${download_datasets}"
 echo "Download directory: $download_workdir"
-echo "Project directory: $PROJECT_DIR"
+#echo "Project directory: $PROJECT_DIR"
+echo "---------------------------------"
 
-# To reset all downloads at each run
-rm -rf $download_workdir
-mkdir -p $download_workdir
+# Delete all previously downloaded file
+if [ $DELETE_PREVIOUS_DDL = true ]; then 
+  rm -rf $download_workdir
+  echo "Deleting all previous downloads"
+else
+  echo "Keeping previous downloads"
+fi
+mkdir -p "$download_workdir"
 
 for dataset in "${download_datasets[@]}"
 do
