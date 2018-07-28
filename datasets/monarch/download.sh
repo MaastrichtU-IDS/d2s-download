@@ -9,23 +9,23 @@ rm -rf *
 
 BASE_URI=https://archive.monarchinitiative.org/latest/ttl
 
-# 74 files downloaded. each dataset and a small file to describe the dataset. So 32 datasets
+# 74 files downloaded. Each dataset and a small file to describe the dataset. So 32 datasets
 
 wget -a download.log -O index.html "$BASE_URI/"
 
-array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.{3}(?<!_test)(\.ttl|\.nt)).*/\1/p') )
-# Not downloading _test files
+array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.(\.ttl|\.nt)).*/\1/p') )
+
+# Remove test files and wormbase.ttl
+array=( ${array[@]//*test.ttl/} )
+array=( ${array[@]//wormbase.ttl/} )
+
+#( IFS=$'\n'; echo "${array[*]}" )
 
 # 25G total download
 for var in "${array[@]}"
 do
-  if [[ $string = *"My long"* ]]; then
-    echo "Not downloading wormbase.ttl because empty"
-    continue
-  fi
   wget -a download.log "$BASE_URI/${var}"
 done
-
 
 
 # flybase old download XML
