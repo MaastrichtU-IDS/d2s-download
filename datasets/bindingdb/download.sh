@@ -8,15 +8,13 @@ cd $1
 rm -rf *
 
 # BindingDB https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes
-wget -a download.log https://www.bindingdb.org/bind/downloads/BindingDB_All_2018m6.tsv.zip
-wget -a download.log https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes
+wget -a download.log -O index.html "https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes"
 
+# In the html file: downloads/BindingDB_All_2018m6.tsv.zip">BindingDB_All_2018m6.tsv.zip</a> ( 254.56 MB, updated 2018-07-01 )</li>
 array=( $(cat index.html | sed -r -n 's/.*>(BindingDB_All_[^"]*?.\.tsv\.zip).*/\1/p') )
+#( IFS=$'\n'; echo "${array[*]}" )
 
-#<li><a href="/bind/chemsearch/marvin/SDFdownload.jsp?download_file=/bind/downloads/BindingDB_All_2018m6.tsv.zip">BindingDB_All_2018m6.tsv.zip</a> ( 254.56 MB, updated 2018-07-01 )</li>
-wget -a download.log ${myarr[0]}
+wget -a download.log "https://www.bindingdb.org/bind/downloads/${array[0]}"
+# Download something like https://www.bindingdb.org/bind/downloads/BindingDB_All_2018m6.tsv.zip
 
-#https://www.bindingdb.org/bind/downloads/BindingDB_All_2018m6.tsv.zip
-
-# Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
