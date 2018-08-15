@@ -24,6 +24,17 @@ cp $CONFIG /data/config.yaml
 docker run -it --rm -v /data:/data kraken-download /data/config.yaml
 ```
 
+### Docker command in detail
+
+* `/data/config.yaml` is the path to config.yaml INSIDE the container. So here `config.yaml` needs to be put at the root of the shared volume.
+* You can ask to delete all previously downloaded files by adding the `-d` flag
+
+```shell
+docker run -it --rm -v /data:/data kraken-download /data/config.yaml -d
+```
+
+
+
 ### Add a new dataset
 
 * Copy and rename the affymetrix directory, then change the download.sh to download what you want.
