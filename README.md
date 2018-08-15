@@ -15,7 +15,13 @@ A project to automate download of datasets for the data2services/kraken project
 Change the datasets you want to download and databases credentials in the config.yaml file
 
 ```shell
+## On Linux
 ./run.sh config.yaml
+
+## On Windows
+# Copy the config.yaml file to the root of the volume shared with the container (here /data)
+cp $CONFIG /data/config.yaml
+docker run -it --rm -v /data:/data kraken-download /data/config.yaml
 ```
 
 ### Add a new dataset

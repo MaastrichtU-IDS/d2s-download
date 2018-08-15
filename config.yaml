@@ -15,75 +15,15 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - clinicaltrials
-  - pubmed
-  - drugcentral
-  - interpro
-  - ncbigene
+  - stitch
   - pharmgkb
-  - pubchem
+  - drugcentral
+  - bindingdb
+  - ncbigene
+  - ndc
   - stitch
   - string
-  - Biomodels
-  - Bioportal
-  - bioproject
-  - chebi
-  - chembl
-  - clinvar
-  - dailymed
-  - dbsnp
-  - disgenet
-  - do
-  - ensembl
-  - atlas
-  - go
-  - hpo
+  # careful string has space separated values also
+  - ncbigene
   - irefindex
-  - kegg
-  - mesh
-  - mpo
-  - ndc
-  - omia
-  - pathwaycommons
-  - pdb
-  - reactome
-  - refseq
-  - sabiork
-  - uberon
-  - uniprot
-  - wikipathways
-
-  #- clinicaltrials
-  #- pharmgkb
-  #- drugbank
-  #- affymetrix
-  #- biomodels
-  #- bioportal
-  #- chembl
-  #- ctd
-  #- dbpedia
-  #- drugbank
-  #- drugcentral
-  #- genage
-  #- gendr 
-  #- genbank 
-  #- goa 
-  #- pdb
-  #- hgnc
-  #- interpro 
-  #- homologene
-  #- ipi 
-  #- irefindex 
-  #- kegg 
-  #- lsr 
-  #- mgi 
-  #- miriam
-  #- ncbigene 
-  #- pharmgkb 
-  #- pubchem 
-  #- refseq 
-  #- sider 
-  #- taxonomy 
-  #- uniprot 
-  #- wikipathways
-  #- wormbase
+  #- clinicaltrials is xml and psv
