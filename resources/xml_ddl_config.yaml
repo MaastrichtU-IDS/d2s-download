@@ -15,4 +15,5 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
+  - interpro
   - pubmed
