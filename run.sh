@@ -7,4 +7,5 @@ else
 fi
 
 cp $CONFIG /data/config.yaml
-docker run -it --rm -v /data:/data kraken-download /data/config.yaml -d
+docker run -it --rm -v /data:/data kraken-download /data/config.yaml 
+# To delete all file previously download add the flag "-d" at the end
