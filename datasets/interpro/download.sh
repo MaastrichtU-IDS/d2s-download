@@ -11,3 +11,6 @@ rm -rf *
 wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
 
 find . -name "*.gz" -exec gzip -d  {} +
+
+# To avoid error with not finding interpro.dtd when processing with xml2rdf
+sed -i -- 's/interpro.dtd/ftp:\/\/ftp.ebi.ac.uk\/pub\/databases\/interpro\/69.0\/interpro.dtd/g' interpro.xml
