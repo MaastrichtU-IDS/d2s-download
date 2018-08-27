@@ -15,6 +15,7 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
+  # XML
   - clinicaltrials
   - pubmed
   - interpro
@@ -25,3 +26,13 @@ datasets:
   - flybase
   - orphanet
   - pdb
+  # TSV
+  - stitch
+  - pharmgkb
+  - drugcentral
+  - bindingdb
+  - ncbigene
+  - ndc
+  - stitch
+  - genage
+  - string
