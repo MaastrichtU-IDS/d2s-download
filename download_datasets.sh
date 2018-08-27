@@ -6,14 +6,11 @@ do
   # If -d flag then we delete all the files previously downloaded
   if [ "$arg" = "-d" ]; then 
     DELETE_PREVIOUS_DDL=true
-  else
-    YAML_PATH=$arg
   fi
 done
-if [[ -z "$YAML_PATH" ]]; then
-  echo "Provide a config.yaml file as argument. E.g.: /data/config.yaml. You can use the flag -d to delete all previous downloads."
-  exit 1
-fi
+YAML_PATH="/app/config.yaml"
+
+
 
 # Parse yaml
 echo "---------------------------------"

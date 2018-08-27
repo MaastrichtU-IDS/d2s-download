@@ -15,22 +15,20 @@ A project to automate download of datasets for the data2services/kraken project
 Change the datasets you want to download and databases credentials in the config.yaml file
 
 ```shell
-## On Linux
+## Script on Linux
 ./run.sh config.yaml
 
-## On Windows
-# Copy the config.yaml file to the root of the volume shared with the container (here /data)
-cp $CONFIG /data/config.yaml
-docker run -it --rm -v /data:/data kraken-download /data/config.yaml
-```
+## Script on Windows
+./run.bat config.yaml
 
-### Docker command in detail
 
-* `/data/config.yaml` is the path to config.yaml INSIDE the container. So here `config.yaml` needs to be put at the root of the shared volume.
-* You can ask to delete all previously downloaded files by adding the `-d` flag
+# Or directly using the docker command
+# You need to provide a path for the dir where everything will be ddl.
+# And a path to the config.yaml file
+docker run -it --rm -v /data/kraken/download/:/data -v /path/to/config.yaml:/app/config.yaml kraken-download
 
-```shell
-docker run -it --rm -v /data:/data kraken-download /data/config.yaml -d
+# You can ask to delete all previously downloaded files by adding the -d flag
+docker run -it --rm -v /data/kraken/download/:/data -v /path/to/config.yaml:/app/config.yaml kraken-download -d
 ```
 
 
