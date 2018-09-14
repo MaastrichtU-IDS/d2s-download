@@ -32,6 +32,8 @@ done
 # Careful: it takes all lines starting with a "-". So no other array
 download_datasets=( $(sed -n -e 's/^\s*- //p' $YAML_PATH) )
 
+
+
 PROJECT_DIR=$( "pwd" )
 
 echo "Download datasets: ${download_datasets}"

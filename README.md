@@ -15,12 +15,8 @@ A project to automate download of datasets for the data2services/kraken project
 Change the datasets you want to download and databases credentials in the config.yaml file
 
 ```shell
-## Script on Linux
-./run.sh config.yaml
-
-## Script on Windows
-./run.bat config.yaml
-
+## Script on Linux. Use absolute path
+./run.sh /path/to/config.yaml
 
 # Or directly using the docker command
 # You need to provide a path for the dir where everything will be ddl.
