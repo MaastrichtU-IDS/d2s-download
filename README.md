@@ -31,7 +31,7 @@ docker run -it --rm -v /data/kraken/download/:/data -v /path/to/config.yaml:/app
 
 ### Add a new dataset
 
-* Copy and rename the affymetrix directory, then change the download.sh to download what you want.
+* Copy and rename the TEMPLATE directory, then change the download.sh accordingly, you will find a lot of simple operations already covered
 * Add the new dataset to your config.yaml
 * To add a new login and password key just add them in the yaml. Then use them as variables in the download.sh.
 
@@ -77,8 +77,6 @@ wget -a download.log -O index.html ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEM
 
 # Download recursively all files in ftp that have the given extension
 wget -a download.log -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/pubchem/
-
-wget -r -A gz -nH ftp://ftp.ncbi.nlm.nih.gov/snp/
 
 # To properly name the dir created during download
 wget -a download.log -r -A ttl.gz -R reject_this -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
