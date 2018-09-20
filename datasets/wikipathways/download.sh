@@ -9,7 +9,7 @@ cd $1
 rm -rf *
 
 BASE_URI="http://data.wikipathways.org/current/rdf/"
-wget -a download.log -O index.html http://data.wikipathways.org/current/rdf/
+wget -a download.log -O index.html $BASE_URI
 
 # Extract download links from HTML: href='./wikipathways-20180710-rdf-gpml.zip'>
 array=( $(cat index.html | sed -r -n "s/.*href='\.\/(.*?(\.zip|\.ttl))'.*/\1/p") )
