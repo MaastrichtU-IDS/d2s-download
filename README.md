@@ -112,6 +112,8 @@ array=( ${array[@]//*test.ttl/} )
 
 ### Authentication
 
+* wget (affymetrix)
+
 ```shell
 # Affymetrix example. Log in to the server. This only needs to be done once.
 wget --save-cookies cookies.txt \
@@ -121,6 +123,12 @@ wget --save-cookies cookies.txt \
      https://www.thermofisher.com/oam/server/auth_cred_submit
      
 wget --load-cookies cookies.txt  https://www.thermofisher.com/file_to_download
+```
+
+* curl (drugbank)
+
+```shell
+curl -Lfv -o drugbank.zip -u $drugbank_login:$drugbank_password https://www.drugbank.ca/releases/5-1-1/downloads/all-full-database
 ```
 
 
