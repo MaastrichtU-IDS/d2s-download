@@ -8,9 +8,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/genenames/hgnc_complete_set.txt.gz
-
-find . -name "*.gz" -exec gzip -d  {} +
+wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/genenames/new/tsv/hgnc_complete_set.txt
 
 # Convert txt extension to TSV to make it easier to be parsed later
 rename s/\.txt/.tsv/ *.txt
