@@ -32,8 +32,8 @@ docker run -it --rm -v /data/kraken/download/:/data -v /path/to/config.yaml:/app
 ### Add a new dataset
 
 * Copy and rename the TEMPLATE directory, then change the download.sh accordingly, you will find a lot of simple operations already covered
-* Add the new dataset to your config.yaml
-* To add a new login and password key just add them in the yaml. Then use them as variables in the download.sh.
+* To process this new datasets add its directory name to your config.yaml `datasets` list
+* To add a new login and password key add them in the yaml. Then use them as variables in the download.sh.
 
 ## Todo
 
