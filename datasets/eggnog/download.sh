@@ -19,8 +19,9 @@ wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.an
 wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.trees.tsv.gz
 
 
-
 # Only FASTA sequences (.fa or .hmm files)
 #wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.trimmed_algs.tar.gz
 #wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.raw_algs.tar.gz
 #wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.hmm.tar.gz
+
+find . -name "*.gz" -exec gzip -d  {} +
