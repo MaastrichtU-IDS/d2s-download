@@ -8,39 +8,19 @@ cd $1
 rm -rf *
 
 
-# String DB: https://string-db.org/cgi/download.pl
+### String DB: https://string-db.org/cgi/download.pl
 
-# All files, except PSICQUIC files (tsv), are 1 space separated value files
-# INTERACTION DATA
+# full database, part I: the players (proteins, species, COGs,...). 4.9G
+wget -a download.log https://stringdb-static.org/download/items_schema.v10.5.sql.gz
 
-# Links: protein network data (incl. distinction: direct vs. interologs) (108M)
-wget -a download.log https://stringdb-static.org/download/protein.links.full.v10.5/9606.protein.links.full.v10.5.txt.gz
-# All species: 29G
-#wget -a download.log https://stringdb-static.org/download/protein.links.full.v10.5.txt.gz
+# full database, part II: the networks (nodes, edges, scores,...). 41.3G
+wget -a download.log https://stringdb-static.org/download/network_schema.v10.5.sql.gz
 
-# Actions: interaction types for protein links (21M)
-wget -a download.log https://stringdb-static.org/download/protein.actions.v10.5/9606.protein.actions.v10.5.txt.gz
-# All species: 12G
-#wget -a download.log https://stringdb-static.org/download/protein.actions.v10.5.txt.gz
+# full database, part III: interaction evidence (but: excluding license-restricted data). 6.9G
+wget -a download.log https://stringdb-static.org/download/evidence_schema.v10.5.sql.gz
 
+# full database, part IV: homology data (all-against-all SIMAP similarity searches). 460G
+wget -a download.log https://stringdb-static.org/download/homology_schema.v10.5.sql.gz
 
-# ACCESSORY DATA
-
-# orthologous groups (COGs,NOGs,KOGs,...) and their proteins  
-wget -a download.log https://stringdb-static.org/download/COG.mappings.v10.5.txt.gz
-
-# presence / absence of orthologous groups in species  (127M)
-wget -a download.log https://stringdb-static.org/download/species.mappings.v10.5.txt.gz
-
-# aliases for STRING proteins: locus names, accessions, descriptions... (12M)
-wget -a download.log https://stringdb-static.org/download/protein.aliases.v10.5/9606.protein.aliases.v10.5.txt.gz
-# All species: 622M
-#wget -a download.log https://stringdb-static.org/download/protein.aliases.v10.5.txt.gz
-
-# [tsv file] protein network data in PSI-MI MITAB2.5 (PSICQUIC) format (30M)
-wget -a download.log https://stringdb-static.org/download/psicquic-mitab_2.5.v10.5/9606.psicquic-mitab_2.5.v10.5.txt.gz
-# All species 97G
-#wget -a download.log https://stringdb-static.org/download/psicquic-mitab_2.5.v10.5.tar
 
 find . -name "*.gz" -exec gzip -d  {} +
-#find . -name "*.tar.gz" -exec tar -xzvf {} \;
