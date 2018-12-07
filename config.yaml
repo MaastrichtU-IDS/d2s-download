@@ -15,4 +15,4 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - gote
+  - biogrid

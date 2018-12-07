@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log http://rdf.disgenet.org/download/void-disgenet.ttl
+wget -a download.log http://rdf.disgenet.org/download/v5.0.0/void-disgenet.ttl
 
 # TODO: sort dir from download and take the latest version
 #wget -a download.log -O index.html http://rdf.disgenet.org/download/
