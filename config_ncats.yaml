@@ -2,12 +2,6 @@
 download_workdir: "/data/emonet/ncats"
 
 # Credentials
-drugbank_login: "my_email"
-drugbank_password: "my_password"
-
-affymetrix_login: "my_email"
-affymetrix_password: "my_password"
-
 biomodels_login: "my_email"
 biomodels_password: "my_password"
 
@@ -21,7 +15,7 @@ datasets:
   #- DATE
   - disgenet
   - pathwaycommons
-  - kegg
+  #- kegg
   - biogrid
   - wikipathways
   - preppi
