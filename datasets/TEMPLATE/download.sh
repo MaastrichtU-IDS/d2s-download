@@ -68,3 +68,10 @@ find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;
 
 ## RENAME EXTENSION (e.g.: txt in tsv)
 rename s/\.txt/.tsv/ *.txt
+
+
+## ADD COLUMNS NAME
+# CSV
+sed -i '1s/^/column1,column2,column3\n/' *.csv
+# TSV
+sed -i '1s/^/column1\tcolumn2\tcolumn3\n/' *.tsv

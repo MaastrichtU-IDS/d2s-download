@@ -1,5 +1,5 @@
 # Where the files will be downloaded
-download_workdir: "/data/kraken-download/datasets"
+download_workdir: "/data/kraken-download"
 
 # Credentials
 drugbank_login: "my_email"
@@ -15,4 +15,4 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
-  - pubmed
+  - gote
