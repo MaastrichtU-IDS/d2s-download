@@ -30,4 +30,4 @@ rename s/\.txt/.tsv/ *.txt
 
 
 ## ADD COLUMNS NAME
-sed -i '1s/^/TissueName\tGpcrUniportId\tPathwayNames\tPathwayPValue\tZscoreHighGpcrExpression\tZscoreSpecificExpression\n/' *.tsv
+sed -i '1s/^/TissueName\tGpcrUniprotId\tPathwayNames\tPathwayPValue\tZscoreHighGpcrExpression\tZscoreSpecificExpression\n/' *.tsv
