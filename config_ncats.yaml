@@ -15,4 +15,15 @@ bioportal_apikey: "my_apikey"
 # From account...
 
 datasets:
+  #- AEOLUS
+  #- COHD
+  - gote
+  #- DATE
+  - disgenet
+  - pathwaycommons
+  - kegg
+  - biogrid
+  - wikipathways
   - preppi
+  - clinicaltrials
+  - pubmed
