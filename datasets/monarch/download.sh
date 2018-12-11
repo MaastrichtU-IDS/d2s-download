@@ -13,6 +13,12 @@ BASE_URI=https://archive.monarchinitiative.org/latest/ttl
 # Download file list in HTML
 wget -a download.log -O index.html "$BASE_URI/"
 
+
+wget -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl
+wget -a download.log http://purl.obolibrary.org/obo/upheno/mammal.owl
+wget -a download.log http://purl.obolibrary.org/obo/upheno/vertebrate.owl
+
+
 # Extract ttl filename from HTML
 array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.(\.ttl|\.nt)).*/\1/p') )
 

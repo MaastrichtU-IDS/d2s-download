@@ -27,7 +27,7 @@ wget -a download.log -r -A ttl.gz -R reject_this -nH --cut-dirs=3 -P compound ft
 ## HTML EXTRACT URL to an array
 # Download simple HTML page and name it as index.html
 wget -a download.log -O index.html $BASE_URI
-# Extract URL fron the HTML document to an array. Feel free to change the regex
+# Extract URLs from the HTML document to an array. Feel free to change the regex
 array=( $(cat index.html | sed -r -n 's/.*((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 for var in "${array[@]}"
 do

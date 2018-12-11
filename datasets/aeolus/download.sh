@@ -16,3 +16,5 @@ wget -a download.log https://datadryad.org/bitstream/handle/10255/dryad.105332/a
 # ZIP
 # Recursive in subdir
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
+
+exit
