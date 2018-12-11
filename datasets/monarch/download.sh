@@ -17,7 +17,7 @@ wget -a download.log -O index.html "$BASE_URI/"
 wget -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl
 wget -a download.log http://purl.obolibrary.org/obo/upheno/mammal.owl
 wget -a download.log http://purl.obolibrary.org/obo/upheno/vertebrate.owl
-
+wget -a download.log -O mondo.owl https://www.ebi.ac.uk/ols/ontologies/mondo/download
 
 # Extract ttl filename from HTML
 array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.(\.ttl|\.nt)).*/\1/p') )
