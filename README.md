@@ -1,6 +1,6 @@
-# kraken-download
+# data2services-download
 
-A project to automate download of datasets for the data2services/kraken project
+A project to automate download of datasets for the Data2Services project
 
 ## Run on Docker
 
@@ -21,10 +21,12 @@ Change the datasets you want to download and databases credentials in the config
 # Or directly using the docker command
 # You need to provide a path for the dir where everything will be ddl.
 # And a path to the config.yaml file
-docker run -it --rm -v /data/download:/data -v /path/to/config.yaml:/app/config.yaml kraken-download
+docker run -it --rm -v /data/download:/data -v /path/to/config.yaml:/app/config.yaml data2services-download
+docker run -it --rm -v /data/graphdb-import:/data -v /path/to/config.yaml:/app/config.yaml data2services-download
+
 
 # You can ask to delete all previously downloaded files by adding the -d flag
-docker run -it --rm -v /data/download/:/data -v /path/to/config.yaml:/app/config.yaml kraken-download -d
+docker run -it --rm -v /data/download/:/data -v /path/to/config.yaml:/app/config.yaml data2services-download -d
 ```
 
 
