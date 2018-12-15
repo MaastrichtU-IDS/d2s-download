@@ -18,27 +18,27 @@ Change the datasets you want to download and databases credentials in the config
 ## Download in /data/data2services
 docker run -it --rm -v /data/data2services:/data data2services-download \
 	--download-datasets aeolus,pharmgkb,ctd \
-	--username my_login --password my_password
-
-
-# Or directly using the docker command
-# You need to provide a path for the dir where everything will be ddl.
-# And a path to the config.yaml file
-docker run -it --rm -v /data/download:/data -v /path/to/config.yaml:/app/config.yaml data2services-download
-docker run -it --rm -v /data/graphdb-import:/data -v /path/to/config.yaml:/app/config.yaml data2services-download
-
-
-# You can ask to delete all previously downloaded files by adding the -d flag
-docker run -it --rm -v /data/download/:/data -v /path/to/config.yaml:/app/config.yaml data2services-download -d
+	--username my_login --password my_password \
+	--clean # to delete all files in /data/data2services
 ```
 
+Datasets bundles
 
+```shell
+# XML
+docker run -it --rm -v /data/data2services:/data data2services-download --download-datasets clinicaltrials,pubmed,interpro,bioproject,clinvar,dailymed,dbsnp,flybase,orphanet,pdb
+
+# TSV
+docker run -it --rm -v /data/data2services:/data data2services-download --download-datasets stitch,pharmgkb,drugcentral,bindingdb,ncbigene,ndc,stitch,genage,ncbigene,irefindex
+```
+
+More datasets can be found in `./datasets`
 
 ### Add a new dataset
 
 * Copy and rename the TEMPLATE directory, then change the download.sh accordingly, you will find a lot of simple operations to download files already covered.
-* Add the new dataset to your config.yaml
-* To add a new login and password key just add them in the yaml. Then use them as variables in the download.sh.
+* Use the name of the directory to pass it as a dataset to download.
+* Use `$USERNAME` and `$PASSWORD` variables if you need one.
 
 ## Todo
 

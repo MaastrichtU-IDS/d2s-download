@@ -43,13 +43,13 @@ array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.c
 
 
 # Trying to use same way as Drugbank: ERROR (JavaScript is required. Enable JavaScript to use OAM Serve)
-curl -Lfv -u vincent.emonet:maasitest12 https://sec-assets.thermofisher.com/TFS-Assets/LSG/Support-Files/Axiom_Apple480_Annotation-csv-r2.zip
+curl -Lfv -u $USERNAME:$PASSWORD https://sec-assets.thermofisher.com/TFS-Assets/LSG/Support-Files/Axiom_Apple480_Annotation-csv-r2.zip
 
 # Download all extracted links
 for var in "${array[@]}"
 do
   echo "Downloading... ${var}"
-  curl -Lfv -o affymetrix.zip -u vincent.emonet:maasitest12 ${var}
+  curl -Lfv -o affymetrix.zip -u $USERNAME:$PASSWORD ${var}
 done
 
 # Unzip all files in subdir with name of the zip file
