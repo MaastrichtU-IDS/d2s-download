@@ -43,7 +43,6 @@ WORKING_PATH="/data"
 
 echo "Download datasets: $DOWNLOAD_DATASETS"
 echo "Clean the download directory: $DELETE_PREVIOUS_DDL"
-echo "---------------------------------"
 
 # Delete all previously downloaded file
 if [ $DELETE_PREVIOUS_DDL = true ]; then 
