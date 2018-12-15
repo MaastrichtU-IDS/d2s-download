@@ -5,9 +5,7 @@ RUN apt-get update -y && \
 
 WORKDIR app
 
-COPY datasets/ ./datasets
-COPY download_datasets.sh ./download_datasets.sh
-COPY resources/ascii_kraken.txt ./ascii_kraken.txt
+COPY . .
 
 RUN chmod +x download_datasets.sh
 
