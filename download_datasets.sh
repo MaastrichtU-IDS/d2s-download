@@ -1,65 +1,68 @@
 #!/bin/bash
 DELETE_PREVIOUS_DDL=false
-# Iterate over arguments
-for arg in "$@"
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
 do
-  # If -d flag then we delete all the files previously downloaded
-  if [ "$arg" = "-d" ]; then 
+key="$1"
+
+case $key in
+    -d|--download-datasets)
+    DOWNLOAD_DATASETS="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -un|--username)
+    USERNAME="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -pw|--password)
+    PASSWORD="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    --clean)
     DELETE_PREVIOUS_DDL=true
-  fi
+    shift # past argument
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
 done
-YAML_PATH="/app/config.yaml"
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
 
-
-# Parse yaml
-echo "---------------------------------"
-echo "  YAML configuration:"
-param_array=( $(cat $YAML_PATH | sed -r -n 's/([^#]*?):(.+)/\1\2/p') )
-i=0  
-while [ $i -le ${#param_array[@]} ]  
-do  
-  VAR_NAME=${param_array[$i]}
-  i=$(( $i + 1 ))
-  if [[ -z "$VAR_NAME" ]]; then
-    continue
-  fi
-  echo "$VAR_NAME = ${param_array[$i]}"
-  eval "$VAR_NAME"="\"${param_array[$i]}\""
-  # Show an error but works at naming the var with another var
-  i=$(( $i + 1 ))
-done
-# Careful: it takes all lines starting with a "-". So no other array
-download_datasets=( $(sed -n -e 's/^\s*- //p' $YAML_PATH) )
-
-
+IFS=',' read -ra DATASETS_ARRAY <<< "$DOWNLOAD_DATASETS"
 
 PROJECT_DIR=$( "pwd" )
 
-echo "Download datasets: ${download_datasets}"
-echo "Download directory: $download_workdir"
-#echo "Project directory: $PROJECT_DIR"
+WORKING_PATH="/data"
+
+echo "Download datasets: $DOWNLOAD_DATASETS"
+echo "Clean the download directory: $DELETE_PREVIOUS_DDL"
 echo "---------------------------------"
 
 # Delete all previously downloaded file
 if [ $DELETE_PREVIOUS_DDL = true ]; then 
-  rm -rf $download_workdir
-  echo "Deleting all previous downloads"
-else
-  echo "Keeping previous downloads"
+  rm -rf $WORKING_PATH/*
 fi
-mkdir -p "$download_workdir"
+mkdir -p "$WORKING_PATH"
 
-for dataset in "${download_datasets[@]}"
+
+for dataset in "${DATASETS_ARRAY[@]}"
 do
-  DATASET_DIR=$download_workdir/${dataset}
+  DATASET_DIR=$WORKING_PATH/${dataset}
   echo "---------------------------------"
   echo "Downloading dataset to $DATASET_DIR"
   cd $PROJECT_DIR
   source datasets/${dataset}/download.sh $DATASET_DIR
 done
 
-cd $download_workdir
+
+cd $WORKING_PATH
 
 # Go through the logs to check for error or failed download
 grep -rl --include \*.log ERROR > download_failed.log
@@ -70,7 +73,7 @@ cat $PROJECT_DIR/ascii_kraken.txt
 
 echo " "
 echo "Download complete!"
-echo "Check out failed download at $download_workdir/download_failed.log"
+echo "Check out failed download at $WORKING_PATH/download_failed.log"
 echo "---------------------------------"
 echo "    Failed download:"
 cat download_failed.log

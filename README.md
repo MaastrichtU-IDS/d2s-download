@@ -15,8 +15,11 @@ A project to automate download of datasets for the Data2Services project
 Change the datasets you want to download and databases credentials in the config.yaml file
 
 ```shell
-## Script to run detached on Linux. Use absolute path.
-./run.sh /path/to/config.yaml
+## Download in /data/data2services
+docker run -it --rm -v /data/data2services:/data data2services-download \
+	--download-datasets aeolus,pharmgkb,ctd \
+	--username my_login --password my_password
+
 
 # Or directly using the docker command
 # You need to provide a path for the dir where everything will be ddl.
