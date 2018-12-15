@@ -1,6 +1,6 @@
 # data2services-download
 
-A project to automate download of datasets for the Data2Services project
+A project to automate download of datasets for the Data2Services project.
 
 ## Run on Docker
 
@@ -12,17 +12,16 @@ A project to automate download of datasets for the Data2Services project
 
 ### Run
 
-Change the datasets you want to download and databases credentials in the config.yaml file
+Download files in `/data/data2services`.
 
 ```shell
-## Download in /data/data2services
 docker run -it --rm -v /data/data2services:/data data2services-download \
 	--download-datasets aeolus,pharmgkb,ctd \
 	--username my_login --password my_password \
 	--clean # to delete all files in /data/data2services
 ```
 
-Datasets bundles
+Datasets bundles:
 
 ```shell
 # XML
@@ -30,6 +29,9 @@ docker run -it --rm -v /data/data2services:/data data2services-download --downlo
 
 # TSV
 docker run -it --rm -v /data/data2services:/data data2services-download --download-datasets stitch,pharmgkb,drugcentral,bindingdb,ncbigene,ndc,stitch,genage,ncbigene,irefindex
+
+# NCATS Translator program
+docker run -it --rm -v /data/data2services:/data data2services-download --download-datasets gote,disgenet,pathwaycommons,biogrid,wikipathways,preppi,clinicaltrials,pubmed,kegg
 ```
 
 More datasets can be found in `./datasets`
