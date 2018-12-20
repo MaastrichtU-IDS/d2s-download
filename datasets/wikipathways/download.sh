@@ -24,5 +24,9 @@ do
   wget -a download.log $BASE_URI${var}
 done
 
+# Download ontology
+wget -a download.log -O wikipathways_ontology.ttl http://www.w3.org/2012/pyRdfa/extract?uri=http://vocabularies.wikipathways.org/wp#
+
+
 # Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
