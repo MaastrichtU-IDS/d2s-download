@@ -7,7 +7,7 @@ A project to automate download of datasets for the Data2Services project.
 ### Build
 
 ```shell
-./build.sh
+docker build -t data2services-download .
 ```
 
 ### Run
