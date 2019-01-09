@@ -17,4 +17,8 @@ wget -a download.log https://datadryad.org/bitstream/handle/10255/dryad.105332/a
 # Recursive in subdir
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
 
-exit
+### TODO
+
+# Then the TSV files need to be loaded into a MySQL database
+# See instructions in the README.txt
+# The SQL script used to load the data can be found in this directory as load_database.sql
