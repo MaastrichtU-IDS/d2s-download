@@ -12,6 +12,11 @@ BASE_URI="https://clinicaltrials.gov/ct2"
 
 CRAWL_URI="$BASE_URI/crawl"
 
+# All studies records (1.3G)
+wget -a download.log https://clinicaltrials.gov/AllPublicXML.zip
+
+
+
 echo "Base URI $BASE_URI"
 
 echo "Crawl URI $CRAWL_URI"
