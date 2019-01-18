@@ -16,7 +16,7 @@ wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.member
 
 wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.annotations.tsv.gz
 
-wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.trees.tsv.gz
+#wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.trees.tsv.gz
 
 
 # Only FASTA sequences (.fa or .hmm files)
