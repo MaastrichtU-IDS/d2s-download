@@ -25,3 +25,6 @@ wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.annota
 #wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.hmm.tar.gz
 
 find . -name "*.gz" -exec gzip -d  {} +
+
+sed -i '1s/^/TaxonomicLevel\tGroupName\tProteinCount\tSpeciesCount\tCOGFunctionalCategory\tProteinIDs\n/' NOG.members.tsv
+sed -i '1s/^/TaxonomicLevel\tGroupName\tProteinCount\tSpeciesCount\tCOGFunctionalCategory\tConsensusFunctionalDescription\n/' NOG.annotations.tsv
