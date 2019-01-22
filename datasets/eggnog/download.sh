@@ -26,5 +26,6 @@ wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.annota
 
 find . -name "*.gz" -exec gzip -d  {} +
 
+# Add columns name
 sed -i '1s/^/TaxonomicLevel\tGroupName\tProteinCount\tSpeciesCount\tCOGFunctionalCategory\tProteinIDs\n/' NOG.members.tsv
 sed -i '1s/^/TaxonomicLevel\tGroupName\tProteinCount\tSpeciesCount\tCOGFunctionalCategory\tConsensusFunctionalDescription\n/' NOG.annotations.tsv
