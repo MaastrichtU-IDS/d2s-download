@@ -11,31 +11,32 @@ rm -rf *
 ### https://figshare.com/collections/Columbia_Open_Health_Data_a_database_of_EHR_prevalence_and_co-occurrence_of_conditions_drugs_and_procedures/4151252
 
 # Concepts (description and IDs). No column name
-wget -a download.log https://ndownloader.figshare.com/files/12272921
-
-# Lifetime_dataset_paired-concept_deviations
-wget -a download.log https://ndownloader.figshare.com/files/13154816
-
-# 5-year_dataset_single_concept_deviations
-wget -a download.log https://ndownloader.figshare.com/files/13154819
-
-# Lifetime_dataset_single_concept_deviations
-wget -a download.log https://ndownloader.figshare.com/files/13154756
-
-# 5-year_dataset_paired-concept_deviations
-wget -a download.log https://ndownloader.figshare.com/files/13154753
-
-# Lifetime_data_set_paired_concept_counts. No columns name
-wget -a download.log https://ndownloader.figshare.com/files/12272933
-
-# 5-year_data_set_single_concept_count. No column name
-wget -a download.log https://ndownloader.figshare.com/files/12272930
+wget -O concepts.txt -a download.log https://ndownloader.figshare.com/files/12272921
 
 # Lifetime_data_set_single_concept_count. No column name
-wget -a download.log https://ndownloader.figshare.com/files/12272927
+wget -O concept_counts.txt -a download.log https://ndownloader.figshare.com/files/12272927
+
+# Lifetime_data_set_paired_concept_counts. No columns name
+wget -O concept_pair_counts.txt -a download.log https://ndownloader.figshare.com/files/12272933
+
+
+# Lifetime_dataset_paired-concept_deviations
+wget -O Lifetime_dataset_paired-concept_deviations.txt -a download.log https://ndownloader.figshare.com/files/13154816
+
+# 5-year_dataset_single_concept_deviations
+wget -O 5-year_dataset_single_concept_deviations.txt -a download.log https://ndownloader.figshare.com/files/13154819
+
+# Lifetime_dataset_single_concept_deviations
+wget -O Lifetime_dataset_single_concept_deviations.txt -a download.log https://ndownloader.figshare.com/files/13154756
+
+# 5-year_dataset_paired-concept_deviations
+wget -O 5-year_dataset_paired-concept_deviations.txt -a download.log https://ndownloader.figshare.com/files/13154753
+
+# 5-year_data_set_single_concept_count. No column name
+wget -O 5-year_data_set_single_concept_count.txt -a download.log https://ndownloader.figshare.com/files/12272930
 
 # 5-year_data_set_paired_concept_counts
-wget -a download.log https://ndownloader.figshare.com/files/12272924
+wget -O 5-year_data_set_paired_concept_counts.txt -a download.log https://ndownloader.figshare.com/files/12272924
 
 
 
