@@ -1,0 +1,47 @@
+#!/bin/bash
+if [[ -z "$1" ]]; then
+  echo "Provide a target directory to store downloaded files as argument. E.g.: /data/download"
+  exit 1
+fi
+mkdir -p $1
+cd $1
+rm -rf *
+
+
+### https://figshare.com/collections/Columbia_Open_Health_Data_a_database_of_EHR_prevalence_and_co-occurrence_of_conditions_drugs_and_procedures/4151252
+
+# Concepts (description and IDs). No column name
+wget -a download.log https://ndownloader.figshare.com/files/12272921
+
+# Lifetime_dataset_paired-concept_deviations
+wget -a download.log https://ndownloader.figshare.com/files/13154816
+
+# 5-year_dataset_single_concept_deviations
+wget -a download.log https://ndownloader.figshare.com/files/13154819
+
+# Lifetime_dataset_single_concept_deviations
+wget -a download.log https://ndownloader.figshare.com/files/13154756
+
+# 5-year_dataset_paired-concept_deviations
+wget -a download.log https://ndownloader.figshare.com/files/13154753
+
+# Lifetime_data_set_paired_concept_counts. No columns name
+wget -a download.log https://ndownloader.figshare.com/files/12272933
+
+# 5-year_data_set_single_concept_count. No column name
+wget -a download.log https://ndownloader.figshare.com/files/12272930
+
+# Lifetime_data_set_single_concept_count. No column name
+wget -a download.log https://ndownloader.figshare.com/files/12272927
+
+# 5-year_data_set_paired_concept_counts
+wget -a download.log https://ndownloader.figshare.com/files/12272924
+
+
+
+## RENAME EXTENSION (e.g.: txt in tsv)
+#rename s/\.txt/.tsv/ *.txt
+
+## ADD COLUMNS NAME
+# TSV
+#sed -i '1s/^/column1\tcolumn2\tcolumn3\n/' *.tsv
