@@ -12,19 +12,24 @@ case $key in
     shift # past argument
     shift # past value
     ;;
+    -p|--working-path)
+    WORKING_PATH="$2"
+    shift # default is /data
+    shift 
+    ;;
     -un|--username)
     USERNAME="$2"
-    shift # past argument
-    shift # past value
+    shift 
+    shift 
     ;;
     -pw|--password)
     PASSWORD="$2"
-    shift # past argument
-    shift # past value
+    shift 
+    shift 
     ;;
     --clean)
     DELETE_PREVIOUS_DDL=true
-    shift # past argument
+    shift 
     ;;
     *)    # unknown option
     POSITIONAL+=("$1") # save it in an array for later
@@ -39,7 +44,8 @@ IFS=',' read -ra DATASETS_ARRAY <<< "$DOWNLOAD_DATASETS"
 
 PROJECT_DIR=$( "pwd" )
 
-WORKING_PATH="/data"
+# Set default workingpath
+WORKING_PATH=${WORKING_PATH:-/data}
 
 echo "Download datasets: $DOWNLOAD_DATASETS"
 echo "Clean the download directory: $DELETE_PREVIOUS_DDL"
@@ -49,6 +55,7 @@ if [ $DELETE_PREVIOUS_DDL = true ]; then
   rm -rf $WORKING_PATH/*
 fi
 mkdir -p "$WORKING_PATH"
+echo "Download in workingpath (-p) $WORKING_PATH"
 
 
 for dataset in "${DATASETS_ARRAY[@]}"
