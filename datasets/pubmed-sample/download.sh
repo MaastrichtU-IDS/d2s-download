@@ -11,6 +11,7 @@ rm -rf *
 
 wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0001.xml.gz
 wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0002.xml.gz
+wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0003.xml.gz
 
 # Unzip all files in subdir with name of the zip file
 #find . -name "*.gz" -exec gzip -d  {} +
