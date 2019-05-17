@@ -9,16 +9,12 @@ rm -rf *
 
 ########## Download SQL database files
 
-wget -a download.log https://datadryad.org/bitstream/handle/10255/dryad.105332/aeolus_v1.zip
+#wget -a download.log https://datadryad.org/bitstream/handle/10255/dryad.105332/aeolus_v1.zip
 
-########## UNCOMPRESS
-
-# ZIP
-# Recursive in subdir
-find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
+# Uncompress SQL DB (TSV files to be loaded using the script in data2services-download)
+#find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
 
 ### TODO
-
 # Then the TSV files need to be loaded into a MySQL database
 # See instructions in the README.txt
 # The SQL script used to load the data can be found in this directory as load_database.sql
