@@ -7,8 +7,10 @@ mkdir -p $1
 cd $1
 rm -rf *
 
+### See also: Smart-API http://smart-api.info/ui/9fbeaeabd19b334fa0f1932aa111bf35
 
-### https://figshare.com/collections/Columbia_Open_Health_Data_a_database_of_EHR_prevalence_and_co-occurrence_of_conditions_drugs_and_procedures/4151252
+### Download SQL database
+# https://figshare.com/collections/Columbia_Open_Health_Data_a_database_of_EHR_prevalence_and_co-occurrence_of_conditions_drugs_and_procedures/4151252
 
 # Concepts (description and IDs). No column name
 wget -O concepts.txt -a download.log https://ndownloader.figshare.com/files/12272921
