@@ -19,4 +19,6 @@ wget -a download.log -r -A bz2 -nH ftp://ftp.ebi.ac.uk/pub/databases/RDF/reactom
 # Bz2
 find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;
 
+find . -name "*.tar" -exec tar -xzvf {} \;
+
 # .owl files for species: Homo_sapiens.owl, Mus_musculus.owl
