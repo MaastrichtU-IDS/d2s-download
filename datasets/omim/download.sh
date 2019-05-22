@@ -10,14 +10,10 @@ rm -rf *
 wget -a download.log https://omim.org/static/omim/data/mim2gene.txt
 
 # Remove the 4 first lines
-sed -i -e '1,4d' mim2gene.txt
+sed -i -e '1,5d' mim2gene.txt
 
 ## RENAME EXTENSION (e.g.: txt in tsv)
 rename s/\.txt/.tsv/ *.txt
 
-
-## ADD COLUMNS NAME
-# CSV
-#sed -i '1s/^/column1,column2,column3\n/' *.csv
-# TSV
-#sed -i '1s/^/column1\tcolumn2\tcolumn3\n/' *.tsv
+# Add columns label for TSV
+sed -i '1s/^/MIM_Number\tMIM_Entry_Type\tEntrez_Gene_ID_NCBI\tApproved_Gene_Symbol_HGNC\tEnsembl_Gene_ID_Ensembl\n/' *.tsv
