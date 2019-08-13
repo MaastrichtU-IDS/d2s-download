@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -y && \
-  apt-get install -y apt-utils rename gzip unzip bzip2 wget jq
+  apt-get install -y apt-utils curl rename gzip unzip bzip2 wget jq
 
 WORKDIR app
 
