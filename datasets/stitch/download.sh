@@ -8,7 +8,7 @@ cd $1
 rm -rf *
 
 
-# Stitch: http://stitch.embl.de/cgi/download.pl?UserId=xxJIEBstyfor&sessionId=Bbd8XHc5U1R1
+# Stitch: http://stitch.embl.de/cgi/download.pl
 
 # CHEMICAL NETWORK
 
