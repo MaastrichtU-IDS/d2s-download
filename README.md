@@ -34,7 +34,7 @@ See the [Wiki](https://github.com/MaastrichtU-IDS/data2services-download/wiki) f
 
 # Example of datasets bundles
 
-Might be outdated.
+Check in [/datasets](https://github.com/MaastrichtU-IDS/data2services-download/tree/master/datasets).
 
 ```shell
 # XML
