@@ -7,7 +7,13 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log -r -A 'pubmed19n000*.xml.gz' -nH --cut-dirs=1 ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/
+# Only 2
+wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0001.xml.gz
+wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0972.xml.gz
+
+# Only 10
+# wget -a download.log -r -A 'pubmed19n000*.xml.gz' -nH --cut-dirs=1 ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/
+
 
 #wget -a download.log -r -A xml.gz -nH --cut-dirs=1 ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/
 
