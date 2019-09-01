@@ -14,3 +14,5 @@ curl -Lfv -o drugbank.zip -u $USERNAME:$PASSWORD https://www.drugbank.ca/release
 
 # Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
+mv drugbank/* .
+rmdir drugbank

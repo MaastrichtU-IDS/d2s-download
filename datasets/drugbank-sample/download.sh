@@ -15,3 +15,5 @@ wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/r
 
 # Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;
+mv drugbank/* .
+rmdir drugbank
