@@ -12,17 +12,9 @@ rm -rf *
 
 # http://eggnogdb.embl.de/#/app/downloads
 
-wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.members.tsv.gz
+wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.annotations.tsv.gz
 
-wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.annotations.tsv.gz
-
-#wget -a download.log http://eggnogdb.embl.de/download/latest/data/NOG/NOG.trees.tsv.gz
-
-
-# Only FASTA sequences (.fa or .hmm files)
-#wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.trimmed_algs.tar.gz
-#wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.raw_algs.tar.gz
-#wget -a download.log http://eggnogdb.embl.de/download/eggnog_4.5/data/NOG/NOG.hmm.tar.gz
+wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.members.tsv.gz
 
 find . -name "*.gz" -exec gzip -d  {} +
 
