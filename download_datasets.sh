@@ -42,7 +42,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 IFS=',' read -ra DATASETS_ARRAY <<< "$DOWNLOAD_DATASETS"
 
-PROJECT_DIR=$( "pwd" )
+PROJECT_DIR=/app
 
 # Set default workingpath
 WORKING_PATH=${WORKING_PATH:-/data}
@@ -64,7 +64,7 @@ do
   echo "---------------------------------"
   echo "Downloading dataset to $DATASET_DIR"
   cd $PROJECT_DIR
-  source datasets/${dataset}/download.sh $DATASET_DIR
+  source /app/datasets/${dataset}/download.sh $DATASET_DIR
 done
 
 
