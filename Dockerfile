@@ -11,5 +11,5 @@ COPY . .
 
 RUN chmod a+x download_datasets.sh
 
-ENTRYPOINT ["./download_datasets.sh"]
+ENTRYPOINT ["/app/download_datasets.sh"]
 CMD []
