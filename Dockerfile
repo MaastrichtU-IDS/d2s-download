@@ -9,7 +9,7 @@ WORKDIR app
 
 COPY . .
 
-RUN chmod +x download_datasets.sh
+RUN chmod a+x download_datasets.sh
 
 ENTRYPOINT ["./download_datasets.sh"]
 CMD []
