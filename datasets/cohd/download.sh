@@ -12,6 +12,10 @@ rm -rf *
 ### Download SQL database
 # https://figshare.com/collections/Columbia_Open_Health_Data_a_database_of_EHR_prevalence_and_co-occurrence_of_conditions_drugs_and_procedures/4151252
 
+
+
+### Get TSV:
+
 # Concepts (description and IDs). No column name
 wget -O concepts.txt -a download.log https://ndownloader.figshare.com/files/12272921
 
