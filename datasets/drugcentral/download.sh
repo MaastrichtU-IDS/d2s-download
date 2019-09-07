@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # Download drugcentral  http://drugcentral.org/download
 wget -N -a download.log http://unmtid-shinyapps.net/download/drug.target.interaction.tsv.gz

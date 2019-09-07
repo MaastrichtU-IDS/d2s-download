@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # Download interpro https://www.ebi.ac.uk/interpro/download.html
 wget -N -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz

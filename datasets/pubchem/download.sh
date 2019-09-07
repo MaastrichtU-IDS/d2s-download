@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # RDF files can be found here: ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/
 # Doc: https://pubchemdocs.ncbi.nlm.nih.gov/rdf$_6

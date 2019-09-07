@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 BASE_URI="http://data.wikipathways.org/current/rdf/"
 wget -N -a download.log $BASE_URI

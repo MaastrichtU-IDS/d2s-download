@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # Only 2
 wget -N -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/pubmed19n0001.xml.gz

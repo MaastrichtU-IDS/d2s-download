@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # MeSH Medical Subject Headings
 wget -N -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz

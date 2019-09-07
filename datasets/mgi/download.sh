@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 BASE_URI="http://www.informatics.jax.org/downloads/reports/"
 array=( "MGI_Strain" "MGI_PhenotypicAllele" "MGI_GenePheno" "MRK_Sequence" "MGI_Geno_DiseaseDO" "MGI_Geno_NotDiseaseDO" )

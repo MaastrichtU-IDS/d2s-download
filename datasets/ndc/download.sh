@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # NDC
 wget -N -a download.log https://www.accessdata.fda.gov/cder/ndctext.zip

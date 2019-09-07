@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # The web services might be updated more regurlarly
 BASE_URI="http://irefindex.org/download/irefindex/data/current/psi_mitab/MITAB2.6/"

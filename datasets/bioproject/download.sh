@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # NCBI Bioproject 
 wget -N -a download.log "ftp://ftp.ncbi.nlm.nih.gov/bioproject/bioproject.xml"

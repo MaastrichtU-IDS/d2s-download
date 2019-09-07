@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 ### See also: Smart-API http://smart-api.info/ui/9fbeaeabd19b334fa0f1932aa111bf35
 

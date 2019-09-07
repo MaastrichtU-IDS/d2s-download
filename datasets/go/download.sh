@@ -8,7 +8,7 @@ TARGET_DIR=$1
 
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
-rm -rf *
+
 
 wget -N -a download.log http://purl.obolibrary.org/obo/go/go-basic.obo
 wget -N -a download.log http://purl.obolibrary.org/obo/go.obo

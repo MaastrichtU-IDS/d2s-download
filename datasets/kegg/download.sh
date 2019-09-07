@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # RDF dump 2G from https://www.genome.jp/oc/
 wget -N -a download.log https://www.genome.jp/oc/files/oc_rdf_170605.tar.gz

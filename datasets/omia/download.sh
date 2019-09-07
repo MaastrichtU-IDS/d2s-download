@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # OMIA - ONLINE MENDELIAN INHERITANCE IN ANIMALS
 wget -N -a download.log http://omia.org/dumps/omia.xml.zip

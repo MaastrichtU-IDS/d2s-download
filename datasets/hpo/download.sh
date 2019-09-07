@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # HPO Human Phemotype Ontology
 wget -N -a download.log http://purl.obolibrary.org/obo/hp.owl

@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # Uniprot
 BASE_URI=http://www.uniprot.org/

@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # HPO Mammelian Phenotype Ontology
 wget -N -a download.log https://www.ebi.ac.uk/ols/ontologies/uberon/download

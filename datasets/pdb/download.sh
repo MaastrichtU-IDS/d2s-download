@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # PDB
 BASE_URL=http://rsync.wwpdb.org/pub/pdb/data/structures/divided/XML/

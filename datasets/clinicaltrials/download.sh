@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # All studies records (1.3G). No need for HTML crawling
 wget -N -a download.log https://clinicaltrials.gov/AllPublicXML.zip

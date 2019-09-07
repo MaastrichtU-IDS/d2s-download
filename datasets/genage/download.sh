@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # A csv file and release.html
 wget -N -a download.log http://genomics.senescence.info/genes/human_genes.zip

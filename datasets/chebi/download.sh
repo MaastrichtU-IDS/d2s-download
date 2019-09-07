@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # We don't want to ddl all .owl file so those are manually added
 wget -N -a download.log ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi-disjoints.owl

@@ -8,7 +8,7 @@ TARGET_DIR=$1
 
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
-rm -rf *
+
 
 # Go annotation in psv without columns
 wget -N -a download.log http://geneontology.org/gene-associations/goa_human.gaf.gz

@@ -6,7 +6,7 @@ fi
 TARGET_DIR=$1
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
-rm -rf *
+
 
 # Go annotation
 BASE_URI="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/"

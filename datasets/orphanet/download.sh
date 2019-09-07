@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # Orphanet (disease)
 wget -N -a download.log http://www.orphadata.org/data/xml/en_product1.xml

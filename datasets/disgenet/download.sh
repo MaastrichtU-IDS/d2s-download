@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 wget -N -a download.log http://rdf.disgenet.org/download/v5.0.0/void-disgenet.ttl
 

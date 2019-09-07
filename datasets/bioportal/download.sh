@@ -8,7 +8,7 @@ TARGET_DIR=$1
 
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
-rm -rf *
+
 echo "Target directory: $TARGET_DIR"
 
 wget -O ontologies.json -a download.log "http://data.bioontology.org/ontologies?apikey=$PASSWORD"

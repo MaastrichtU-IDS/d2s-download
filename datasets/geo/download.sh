@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # NCBI GEO download XML file in miniml format
 wget -N -a download.log -r -A xml.tgz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/geo/series/

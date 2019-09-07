@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 wget -N -a download.log http://tatonettilab.org/resources/DATE/date_resource.zip
 

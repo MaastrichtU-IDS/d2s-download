@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 
 BASE_URI="http://data.wikipathways.org/current/rdf/"

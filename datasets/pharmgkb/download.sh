@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # https://www.pharmgkb.org/downloads
 BASE_URI=https://api.pharmgkb.org/v1/download/file/data/

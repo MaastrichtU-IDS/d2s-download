@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # EBI Expression Atlas. The only nice tsv found
 wget -N -a download.log ftp://ftp.ebi.ac.uk/pub/databases/microarray/data/atlas/experiments/E-GEOD-10019/E-GEOD-10019_A-AFFY-2-analytics.tsv

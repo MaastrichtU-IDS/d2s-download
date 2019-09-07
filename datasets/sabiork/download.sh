@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 BASE_URI="http://sabiork.h-its.org/sabioRestWebServices"
 wget -N -a download.log $BASE_URI/suggestions/SABIOReactionIDs

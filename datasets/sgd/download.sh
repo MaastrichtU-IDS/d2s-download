@@ -8,7 +8,7 @@ TARGET_DIR=$1
 
 mkdir -p $TARGET_DIR
 cd $TARGET_DIR
-rm -rf *
+
 
 BASE_URI="https://downloads.yeastgenome.org/curation/"
 

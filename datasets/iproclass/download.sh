@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 
 # Download this file for column: ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.readme

@@ -6,6 +6,6 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 wget -N -a download.log ftp://ftp.ncbi.nih.gov/pub/HomoloGene/current/homologene.data

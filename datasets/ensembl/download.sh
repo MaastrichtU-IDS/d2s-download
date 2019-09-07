@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # ensembl
 # Download ftp://ftp.ensembl.org/pub/current_rdf/aotus_nancymaae/aotus_nancymaae.ttl.gz and ftp://ftp.ensembl.org/pub/current_rdf/aotus_nancymaae/aotus_nancymaae_xrefs.ttl.gz.graph

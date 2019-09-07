@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # BindingDB https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes
 wget -N -a download.log "https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes"

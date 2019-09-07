@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 BASE_URI="ftp://ftp.ebi.ac.uk/pub/databases/IPI/last_release/current/"
 genes_array=( "ARATH" "BOVIN" "CHICK" "DANRE" )

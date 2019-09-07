@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 BASE_URI="ftp://ftp.ncbi.nih.gov/gene/DATA/"
 array=( "gene_info" "gene2accession" "gene2ensembl" "gene2go" "gene2pubmed" "gene2refseq" "gene2sts" "gene2unigene" "gene2vega" )

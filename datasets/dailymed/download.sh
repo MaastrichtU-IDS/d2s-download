@@ -6,7 +6,7 @@ fi
 
 mkdir -p $1
 cd $1
-rm -rf *
+
 
 # DailyMed SPL (Structured Product Labeling) resources https://dailymed.nlm.nih.gov/dailymed/spl-resources-all-drug-labels.cfm
 wget -N -a download.log ftp://public.nlm.nih.gov/nlmdata/.dailymed/dm_spl_release_human_rx_part1.zip
