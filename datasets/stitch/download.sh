@@ -6,8 +6,6 @@ fi
 mkdir -p $1
 cd $1
 
-# TODO: use curl?
-# https://superuser.com/questions/908293/download-file-via-http-only-if-changed-since-last-update
 
 # Stitch: http://stitch.embl.de/cgi/download.pl
 
@@ -45,5 +43,6 @@ wget -N -a download.log http://stitch.embl.de/download/chemicals.inchikeys.v5.0.
 wget -N -a download.log http://stitch.embl.de/download/chemical.sources.v5.0.tsv.gz
 
 
-
-find . -name "*.gz" -exec gzip -d  {} +
+# Recursive and keep originals
+for i in ./*; do gzip -c "$i" > "$i.gz"; done
+# find . -name "*.gz" -exec gzip -c -d  {} +

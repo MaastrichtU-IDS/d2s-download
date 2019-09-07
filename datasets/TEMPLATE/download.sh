@@ -5,11 +5,11 @@ if [[ -z "$1" ]]; then
 fi
 mkdir -p $1
 cd $1
-rm -rf *
-
 
 BASE_URI="http://data.wikipathways.org/current/rdf/"
 
+# TODO: use curl?
+# https://superuser.com/questions/908293/download-file-via-http-only-if-changed-since-last-update
 
 ########## Download files
 
