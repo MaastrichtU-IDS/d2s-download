@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/drugbank-sample/drugbank.zip
+wget -N -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/drugbank-sample/drugbank.zip
 
 # Download providing user login and password
 #curl -Lfv -o drugbank.zip -u $USERNAME:$PASSWORD https://www.drugbank.ca/releases/5-1-1/downloads/all-full-database
