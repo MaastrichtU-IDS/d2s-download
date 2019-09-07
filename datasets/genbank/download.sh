@@ -8,14 +8,14 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log -N ftp://ftp.ncbi.nih.gov/genbank/
+wget -N -a download.log -N ftp://ftp.ncbi.nih.gov/genbank/
 
 array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 
 for var in "${array[@]}"
 do
   echo "Downloading... ${var}"
-  wget -a download.log -N ${var}
+  wget -N -a download.log -N ${var}
 done
 
 # Unzip all files in subdir with name of the zip file

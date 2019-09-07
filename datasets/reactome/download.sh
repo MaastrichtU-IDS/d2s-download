@@ -14,7 +14,7 @@ BASE_URI="http://data.wikipathways.org/current/rdf/"
 ########## Download files
 
 ## FTP DOWNLOAD recursively all files in ftp that have the given extension
-wget -a download.log -r -A bz2 -nH ftp://ftp.ebi.ac.uk/pub/databases/RDF/reactome/r67/
+wget -N -a download.log -r -A bz2 -nH ftp://ftp.ebi.ac.uk/pub/databases/RDF/reactome/r67/
 
 # Bz2
 find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;

@@ -10,6 +10,6 @@ rm -rf *
 ### Pathwaycommons
 
 # Download Biopax OWL file 1.3G
-wget -a download.log http://www.pathwaycommons.org/archives/PC2/v10/PathwayCommons10.All.BIOPAX.owl.gz
+wget -N -a download.log http://www.pathwaycommons.org/archives/PC2/v10/PathwayCommons10.All.BIOPAX.owl.gz
 
 find . -name "*.gz" -exec gzip -d  {} +

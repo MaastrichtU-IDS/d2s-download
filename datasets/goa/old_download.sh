@@ -19,9 +19,9 @@ do
   mkdir -p ${dir}
   cd ${dir}
   echo "Downloading... $BASE_URI${dir}/"
-  wget -a download.log "$BASE_URI${dir}/"
+  wget -N -a download.log "$BASE_URI${dir}/"
   # Download only gaf files
-  wget -a download.log -r -A gaf.gz -nH --cut-dirs=5 "$BASE_URI${dir}/"
+  wget -N -a download.log -r -A gaf.gz -nH --cut-dirs=5 "$BASE_URI${dir}/"
 done
 
 cd $TARGET_DIR

@@ -32,7 +32,7 @@ array=( $(cat index.html | sed -r -n 's/.*((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.t
 for var in "${array[@]}"
 do
   # Download each URL
-  wget -a download.log ${var}
+  wget -N -a download.log ${var}
 done
 
 

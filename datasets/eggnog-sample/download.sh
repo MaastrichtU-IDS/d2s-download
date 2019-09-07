@@ -12,9 +12,9 @@ rm -rf *
 
 # http://eggnogdb.embl.de/#/app/downloads
 
-wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.annotations.tsv.gz
+wget -N -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.annotations.tsv.gz
 
-wget -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.members.tsv.gz
+wget -N -a download.log https://github.com/MaastrichtU-IDS/data2services-download/raw/master/datasets/eggnog-sample/NOG.members.tsv.gz
 
 find . -name "*.gz" -exec gzip -d  {} +
 

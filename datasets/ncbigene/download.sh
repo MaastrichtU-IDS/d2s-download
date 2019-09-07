@@ -16,7 +16,7 @@ array=( "gene_info" "gene2accession" "gene2ensembl" "gene2go" "gene2pubmed" "gen
 for gene in "${array[@]}"
 do
   echo "Downloading Gene... ${gene}"
-  wget -a download.log "$BASE_URI${gene}.gz"
+  wget -N -a download.log "$BASE_URI${gene}.gz"
 done
 
 

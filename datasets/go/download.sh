@@ -10,9 +10,9 @@ mkdir -p $TARGET_DIR
 cd $TARGET_DIR
 rm -rf *
 
-wget -a download.log http://purl.obolibrary.org/obo/go/go-basic.obo
-wget -a download.log http://purl.obolibrary.org/obo/go.obo
-wget -a download.log http://purl.obolibrary.org/obo/go.owl
-wget -a download.log http://purl.obolibrary.org/obo/go/extensions/go-plus.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/go/go-basic.obo
+wget -N -a download.log http://purl.obolibrary.org/obo/go.obo
+wget -N -a download.log http://purl.obolibrary.org/obo/go.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/go/extensions/go-plus.owl
 
 find . -name "*.gz" -exec gzip -d  {} +

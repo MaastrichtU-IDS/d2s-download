@@ -9,4 +9,4 @@ rm -rf *
 
 # HuRI: http://interactome.baderlab.org/download
 
-wget -a download.log http://interactome.baderlab.org/data/HuRI.tsv
+wget -N -a download.log http://interactome.baderlab.org/data/HuRI.tsv

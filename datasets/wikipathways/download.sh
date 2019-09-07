@@ -21,7 +21,7 @@ uniq_array=($(echo "${array[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 for var in "${uniq_array[@]}"
 do
   echo "Downloading... $BASE_URI${var}"
-  wget -a download.log $BASE_URI${var}
+  wget -N -a download.log $BASE_URI${var}
 done
 
 # Download ontology

@@ -11,6 +11,6 @@ cd $TARGET_DIR
 rm -rf *
 
 # Go annotation in psv without columns
-wget -a download.log http://geneontology.org/gene-associations/goa_human.gaf.gz
+wget -N -a download.log http://geneontology.org/gene-associations/goa_human.gaf.gz
 
 find . -name "*.gz" -exec gzip -d  {} +

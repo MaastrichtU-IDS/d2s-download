@@ -8,8 +8,8 @@ cd $1
 rm -rf *
 
 
-wget -a download.log https://archive.monarchinitiative.org/latest/ttl/biogrid.ttl
-wget -a download.log https://archive.monarchinitiative.org/latest/ttl/biogrid_dataset.ttl
+wget -N -a download.log https://archive.monarchinitiative.org/latest/ttl/biogrid.ttl
+wget -N -a download.log https://archive.monarchinitiative.org/latest/ttl/biogrid_dataset.ttl
 
 # Download ontology
-wget -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl

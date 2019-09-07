@@ -13,7 +13,7 @@ BASE_URI="http://data.wikipathways.org/current/rdf/"
 
 ########## Download files
 
-wget -a download.log https://honiglab.c2b2.columbia.edu/PrePPI/ref/preppi_final600.txt.tar.gz
+wget -N -a download.log https://honiglab.c2b2.columbia.edu/PrePPI/ref/preppi_final600.txt.tar.gz
 
 
 # UNTAR recursively all files in actual dir

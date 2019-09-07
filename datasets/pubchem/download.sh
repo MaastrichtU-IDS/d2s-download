@@ -12,14 +12,14 @@ rm -rf *
 # Doc: https://pubchemdocs.ncbi.nlm.nih.gov/rdf$_6
 
 # Metadata about Pubchem datasets
-wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/void.ttl
+wget -N -a download.log ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/void.ttl
 
 # Download only general files from compound (no 2D/3D similarity)
-wget -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
+wget -N -a download.log -r -A ttl.gz -nH --cut-dirs=3 -P compound ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/compound/general
 
 # Single file for substance and bioassay
-wget -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/substance
-wget -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/bioassay
+wget -N -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/substance
+wget -N -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/bioassay
 
 # Other RDF data from Pubchem
 #wget -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ncbi.nlm.nih.gov/pubchem/RDF/descriptor

@@ -16,7 +16,7 @@ array=( "MGI_Strain" "MGI_PhenotypicAllele" "MGI_GenePheno" "MRK_Sequence" "MGI_
 for file in "${array[@]}"
 do
   echo "Downloading... ${file}"
-  wget -a download.log "$BASE_URI$file.rpt"
+  wget -N -a download.log "$BASE_URI$file.rpt"
 done
 
 # WARNING

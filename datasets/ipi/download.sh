@@ -17,14 +17,14 @@ for gene in "${genes_array[@]}"
 do
   echo "Downloading Gene... ${gene}"
   GENE_URI=ipi.genes.${gene}.xrefs.gz
-  wget -a download.log $BASE_URI$GENE_URI
+  wget -N -a download.log $BASE_URI$GENE_URI
 done
 
 for specie in "${species_array[@]}"
 do
   echo "Downloading Specie... ${specie}"
   SPECIE_URI=ipi.${specie}.xrefs.gz
-  wget -a download.log $BASE_URI$SPECIE_URI
+  wget -N -a download.log $BASE_URI$SPECIE_URI
 done
 
 find . -name "*.gz" -exec gzip -d  {} +

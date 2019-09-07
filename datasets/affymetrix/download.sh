@@ -13,7 +13,7 @@ wget -N -a download.log https://www.thermofisher.com/nl/en/home/life-science/mic
 array=( $(cat genechip-array-annotation-files.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 
 # Log in to the server. This only needs to be done once.
-#wget -a download.log --save-cookies cookies.txt \
+#wget -N -a download.log --save-cookies cookies.txt \
 #     --keep-session-cookies \
 #     --post-data 'user=$affymetrix_login&password=$affymetrix_password' \
 #     --delete-after \

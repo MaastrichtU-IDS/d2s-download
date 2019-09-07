@@ -8,8 +8,8 @@ cd $1
 rm -rf *
 
 # MeSH Medical Subject Headings
-wget -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
-wget -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/void_1.0.0.ttl
-wget -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/vocabulary_1.0.0.ttl
+wget -N -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/mesh.nt.gz
+wget -N -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/void_1.0.0.ttl
+wget -N -a download.log ftp://nlmpubs.nlm.nih.gov/online/mesh/rdf/vocabulary_1.0.0.ttl
 
 find . -name "*.gz" -exec gzip -d  {} +

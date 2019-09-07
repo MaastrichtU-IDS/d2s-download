@@ -10,4 +10,4 @@ rm -rf *
 
 # ensembl
 # Download ftp://ftp.ensembl.org/pub/current_rdf/aotus_nancymaae/aotus_nancymaae.ttl.gz and ftp://ftp.ensembl.org/pub/current_rdf/aotus_nancymaae/aotus_nancymaae_xrefs.ttl.gz.graph
-wget -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ensembl.org/pub/current_rdf
+wget -N -a download.log -r -A ttl.gz -nH --cut-dirs=2 ftp://ftp.ensembl.org/pub/current_rdf

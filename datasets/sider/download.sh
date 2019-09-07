@@ -11,9 +11,9 @@ rm -rf *
 # HTML: http://sideeffects.embl.de/download/
 
 # Columns here: ftp://xi.embl.de/SIDER/latest/README
-wget -a download.log ftp://xi.embl.de/SIDER/latest/meddra_all_indications.tsv.gz
-wget -a download.log ftp://xi.embl.de/SIDER/latest/meddra_all_se.tsv.gz
-wget -a download.log ftp://xi.embl.de/SIDER/latest/meddra_freq.tsv.gz
+wget -N -a download.log ftp://xi.embl.de/SIDER/latest/meddra_all_indications.tsv.gz
+wget -N -a download.log ftp://xi.embl.de/SIDER/latest/meddra_all_se.tsv.gz
+wget -N -a download.log ftp://xi.embl.de/SIDER/latest/meddra_freq.tsv.gz
 
 
 find . -name "*.gz" -exec gzip -d  {} +

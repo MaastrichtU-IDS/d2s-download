@@ -8,6 +8,6 @@ cd $1
 rm -rf *
 
 # Not the one from the php script, but it is the BioModels database in RDF
-wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/RDF/biomodels/r31/biomodels-rdf.tar.bz2
+wget -N -a download.log ftp://ftp.ebi.ac.uk/pub/databases/RDF/biomodels/r31/biomodels-rdf.tar.bz2
 
 find . -name "*.bz2" | while read filename; do bzip2 -f -d "$filename"; done;

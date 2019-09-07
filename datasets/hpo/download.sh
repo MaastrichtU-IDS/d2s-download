@@ -8,4 +8,4 @@ cd $1
 rm -rf *
 
 # HPO Human Phemotype Ontology
-wget -a download.log http://purl.obolibrary.org/obo/hp.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/hp.owl

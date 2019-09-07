@@ -12,7 +12,7 @@ rm -rf *
 BASE_URI="http://irefindex.org/download/irefindex/data/current/psi_mitab/MITAB2.6/"
 # Download separately the databases: "10090|10116|4932|559292|562|6239|7227|9606"
 
-wget -a download.log $BASE_URI
+wget -N -a download.log $BASE_URI
 
 # Only download All http://irefindex.org/wiki/index.php?title=README_MITAB2.6_for_iRefIndex_15.0#Directory_contents
 array=( $(cat index.html | sed -r -n 's/.*href="((All)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
@@ -21,7 +21,7 @@ array=( $(cat index.html | sed -r -n 's/.*href="((All)[^"]*?(\.zip|\.gz|\.csv|\.
 for var in "${array[@]}"
 do
   echo "Downloading... ${var}"
-  wget -a download.log $BASE_URI${var}
+  wget -N -a download.log $BASE_URI${var}
 done
 
 # Extract directly in the dir

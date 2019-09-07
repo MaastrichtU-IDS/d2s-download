@@ -21,7 +21,7 @@ for file in "${files_to_download[@]}"
 do
   cd $TARGET_DIR
   echo "Downloading... $BASE_URI${dir}/"
-  wget -a download.log "$BASE_URI${dir}/"
+  wget -N -a download.log "$BASE_URI${dir}/"
 
 done
 

@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log https://omim.org/static/omim/data/mim2gene.txt
+wget -N -a download.log https://omim.org/static/omim/data/mim2gene.txt
 
 # Remove the 4 first lines
 sed -i -e '1,5d' mim2gene.txt

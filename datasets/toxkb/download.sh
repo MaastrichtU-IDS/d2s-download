@@ -10,7 +10,7 @@ rm -rf *
 
 
 # dsstox
-wget -a download.log ftp://ftp.epa.gov/dsstoxftp/DSSTox_Archive_20150930/CPDBAS_DownloadFiles/CPDBAS_v5d_1547_20Nov2008.zip
+wget -N -a download.log ftp://ftp.epa.gov/dsstoxftp/DSSTox_Archive_20150930/CPDBAS_DownloadFiles/CPDBAS_v5d_1547_20Nov2008.zip
 
 # toxcast
 # In original file: http://www.epa.gov/ncct/toxcast/files/ToxCast_20110110.zip

@@ -7,7 +7,7 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log http://tatonettilab.org/resources/DATE/date_resource.zip
+wget -N -a download.log http://tatonettilab.org/resources/DATE/date_resource.zip
 
 
 ########## UNCOMPRESS

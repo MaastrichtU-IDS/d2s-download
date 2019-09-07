@@ -8,4 +8,4 @@ cd $1
 rm -rf *
 
 # RGD
-wget -a download.log ftp://ftp.rgd.mcw.edu/pub/ontology/disease/RDO.obo
+wget -N -a download.log ftp://ftp.rgd.mcw.edu/pub/ontology/disease/RDO.obo

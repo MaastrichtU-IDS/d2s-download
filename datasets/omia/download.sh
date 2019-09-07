@@ -8,6 +8,6 @@ cd $1
 rm -rf *
 
 # OMIA - ONLINE MENDELIAN INHERITANCE IN ANIMALS
-wget -a download.log http://omia.org/dumps/omia.xml.zip
+wget -N -a download.log http://omia.org/dumps/omia.xml.zip
 
 unzip -o \*.zip

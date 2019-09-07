@@ -16,7 +16,7 @@ mv "SDFdownload.jsp?all_download=yes" index.html
 array=( $(cat index.html | sed -r -n 's/.*>(BindingDB_All_[^"]*?.\.tsv\.zip).*/\1/p') )
 #( IFS=$'\n'; echo "${array[*]}" )
 
-wget -a download.log "https://www.bindingdb.org/bind/downloads/${array[0]}"
+wget -N -a download.log "https://www.bindingdb.org/bind/downloads/${array[0]}"
 # Download something like https://www.bindingdb.org/bind/downloads/BindingDB_All_2018m6.tsv.zip
 
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;

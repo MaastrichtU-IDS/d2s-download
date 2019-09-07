@@ -9,8 +9,8 @@ cd $1
 rm -rf *
 
 # NDC
-wget -a download.log https://www.accessdata.fda.gov/cder/ndctext.zip
-#wget -a download.log https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
+wget -N -a download.log https://www.accessdata.fda.gov/cder/ndctext.zip
+#wget -N -a download.log https://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM527389.zip
 
 unzip -o \*.zip
 rename s/\.txt/.tsv/ *.txt

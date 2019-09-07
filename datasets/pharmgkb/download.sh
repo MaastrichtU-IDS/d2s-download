@@ -21,7 +21,7 @@ array=( "relationships.zip" "pathways-biopax.zip" "annotations.zip" "clinicalVar
 for var in "${array[@]}"
 do
   echo "Downloading... $BASE_URI${var}"
-  wget -a download.log $BASE_URI${var}
+  wget -N -a download.log $BASE_URI${var}
 done
 
 # Unzip all files in subdir with name of the zip file

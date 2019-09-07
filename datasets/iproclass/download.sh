@@ -11,7 +11,7 @@ rm -rf *
 
 # Download this file for column: ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.readme
 
-wget -a download.log ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.gz
+wget -N -a download.log ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.tb.gz
 
 # XML version 23 Go (vs. 6 Go for tb.gz)
 #ftp://ftp.pir.georgetown.edu/databases/iproclass/iproclass.xml.gz

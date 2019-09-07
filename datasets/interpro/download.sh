@@ -8,7 +8,7 @@ cd $1
 rm -rf *
 
 # Download interpro https://www.ebi.ac.uk/interpro/download.html
-wget -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
+wget -N -a download.log ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
 
 find . -name "*.gz" -exec gzip -d  {} +
 

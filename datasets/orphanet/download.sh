@@ -8,6 +8,6 @@ cd $1
 rm -rf *
 
 # Orphanet (disease)
-wget -a download.log http://www.orphadata.org/data/xml/en_product1.xml
-wget -a download.log http://www.orphadata.org/data/xml/en_product4.xml
-wget -a download.log http://www.orphadata.org/data/xml/en_product6.xml
+wget -N -a download.log http://www.orphadata.org/data/xml/en_product1.xml
+wget -N -a download.log http://www.orphadata.org/data/xml/en_product4.xml
+wget -N -a download.log http://www.orphadata.org/data/xml/en_product6.xml

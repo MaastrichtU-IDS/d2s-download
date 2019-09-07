@@ -37,5 +37,5 @@ done
 
 
 # flybase old download XML
-#wget -a download.log -r -A xml.gz -nH --cut-dirs=5 ftp://ftp.flybase.net/releases/current/chado-xml/
+#wget -N -a download.log -r -A xml.gz -nH --cut-dirs=5 ftp://ftp.flybase.net/releases/current/chado-xml/
 #find . -name "*.gz" -exec gzip -d  {} +

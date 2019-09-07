@@ -8,4 +8,4 @@ cd $1
 rm -rf *
 
 # DO Disease Ontology
-wget -a download.log https://github.com/DiseaseOntology/HumanDiseaseOntology/raw/master/src/ontology/HumanDO.owl
+wget -N -a download.log https://github.com/DiseaseOntology/HumanDiseaseOntology/raw/master/src/ontology/HumanDO.owl
