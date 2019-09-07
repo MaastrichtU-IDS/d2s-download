@@ -9,15 +9,15 @@ cd $1
 rm -rf *
 
 # All studies records (1.3G). No need for HTML crawling
-wget -a download.log https://clinicaltrials.gov/AllPublicXML.zip
+wget -N -a download.log https://clinicaltrials.gov/AllPublicXML.zip
 
 
 # Download acct files? (800M psv)
-wget -a download.log -O index.html https://aact.ctti-clinicaltrials.org/pipe_files
+wget -O index.html -a download.log https://aact.ctti-clinicaltrials.org/pipe_files
 aact_array=( $(cat index.html | sed -r -n 's/.*href="(static\/exported_files\/monthly\/.*?)".*/\1/p') )
 
 echo "Download acct file: ${aact_array[0]}"
-wget -a download.log ${aact_array[0]}
+wget -N -a download.log ${aact_array[0]}
 
 rename s/\.txt/.psv/ *.txt
 

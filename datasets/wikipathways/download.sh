@@ -9,7 +9,7 @@ cd $1
 rm -rf *
 
 BASE_URI="http://data.wikipathways.org/current/rdf/"
-wget -a download.log -O index.html $BASE_URI
+wget -N -a download.log $BASE_URI
 
 # Extract download links from HTML: href='./wikipathways-20180710-rdf-gpml.zip'>
 array=( $(cat index.html | sed -r -n "s/.*href='\.\/(.*?(\.zip|\.ttl))'.*/\1/p") )
@@ -25,8 +25,8 @@ do
 done
 
 # Download ontology
-wget -a download.log -O wikipathways_ontology.ttl http://www.w3.org/2012/pyRdfa/extract?uri=http://vocabularies.wikipathways.org/wp#
-
+wget -N -a download.log http://www.w3.org/2012/pyRdfa/extract?uri=http://vocabularies.wikipathways.org/wp#
+mv "extract?uri=http:%2F%2Fvocabularies.wikipathways.org%2Fwp" wikipathways_ontology.ttl
 
 # Unzip all files in subdir with name of the zip file
 find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`/${filename%.*}" "$filename"; done;

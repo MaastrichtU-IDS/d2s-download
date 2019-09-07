@@ -8,4 +8,6 @@ cd $1
 rm -rf *
 
 # HPO Mammelian Phenotype Ontology
-wget -a download.log -O uberon.owl https://www.ebi.ac.uk/ols/ontologies/uberon/download
+wget -N -a download.log https://www.ebi.ac.uk/ols/ontologies/uberon/download
+
+mv download uberon.owl

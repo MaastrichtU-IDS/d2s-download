@@ -8,7 +8,7 @@ cd $1
 rm -rf *
 
 # ClinVar
-wget -a download.log ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml.gz
+wget -N -a download.log ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml.gz
 
 
 find . -name "*.gz" -exec gzip -d  {} +

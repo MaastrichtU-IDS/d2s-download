@@ -8,4 +8,6 @@ cd $1
 rm -rf *
 
 # HPO Mammelian Phenotype Ontology
-wget -a download.log -O mpo.owl https://www.ebi.ac.uk/ols/ontologies/mp/download
+wget -N -a download.log https://www.ebi.ac.uk/ols/ontologies/mp/download
+
+mv download mpo.owl

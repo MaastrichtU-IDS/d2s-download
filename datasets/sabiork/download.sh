@@ -8,8 +8,8 @@ cd $1
 rm -rf *
 
 BASE_URI="http://sabiork.h-its.org/sabioRestWebServices"
-wget -a download.log -O sabioreactionids.xml $BASE_URI/suggestions/SABIOReactionIDs
-
+wget -N -a download.log $BASE_URI/suggestions/SABIOReactionIDs
+mv SABIOReactionIDs sabioreactionids.xml
 
 # Extract reaction IDs from XML. <SABIOReactionID>6</SABIOReactionID>
 array=( $(cat sabioreactionids.xml | sed -r -n 's/.*SABIOReactionID>([0-9]*)<\/SABIOReactionID.*/\1/p') )
@@ -20,5 +20,5 @@ for var in "${array[@]}"
 do
   REACTION_URL="$BASE_URI/searchKineticLaws/biopax?q=SabioReactionID:${var}"
   echo "Downloading... $REACTION_URL"
-  wget -a download.log -O "SabioReaction_${var}.owl" $REACTION_URL
+  wget -O "SabioReaction_${var}.owl" -a download.log $REACTION_URL
 done

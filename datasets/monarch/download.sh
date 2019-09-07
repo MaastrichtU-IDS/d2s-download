@@ -11,13 +11,14 @@ BASE_URI=https://archive.monarchinitiative.org/latest/ttl
 
 # 74 files downloaded. Each dataset and a small file to describe the dataset. So 32 datasets
 # Download file list in HTML
-wget -a download.log -O index.html "$BASE_URI/"
+wget -O index.html -a download.log "$BASE_URI/"
 
 
-wget -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl
-wget -a download.log http://purl.obolibrary.org/obo/upheno/mammal.owl
-wget -a download.log http://purl.obolibrary.org/obo/upheno/vertebrate.owl
-wget -a download.log -O mondo.owl https://www.ebi.ac.uk/ols/ontologies/mondo/download
+wget -N -a download.log http://purl.obolibrary.org/obo/upheno/monarch.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/upheno/mammal.owl
+wget -N -a download.log http://purl.obolibrary.org/obo/upheno/vertebrate.owl
+wget -N -a download.log https://www.ebi.ac.uk/ols/ontologies/mondo/download
+mv download mondo.owl
 
 # Extract ttl filename from HTML
 array=( $(cat index.html | sed -r -n 's/.*href="([^"]*?.(\.ttl|\.nt)).*/\1/p') )
@@ -31,7 +32,7 @@ array=( ${array[@]//wormbase.ttl/} )
 # 25G total download
 for var in "${array[@]}"
 do
-  wget -a download.log "$BASE_URI/${var}"
+  wget -N -a download.log "$BASE_URI/${var}"
 done
 
 

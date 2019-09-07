@@ -11,7 +11,7 @@ cd $TARGET_DIR
 rm -rf *
 echo "Target directory: $TARGET_DIR"
 
-wget -a download.log -O ontologies.json "http://data.bioontology.org/ontologies?apikey=$PASSWORD"
+wget -O ontologies.json -a download.log "http://data.bioontology.org/ontologies?apikey=$PASSWORD"
 
 ddl_ontos=( $(cat ontologies.json | jq -r '.[].links.download') )
 
@@ -23,5 +23,5 @@ do
   mkdir -p $ONTO_DIRNAME
   cd $ONTO_DIRNAME
   echo "Downloading... $BASE_URI${onto_url}/?apikey=$PASSWORD"
-  wget -a download.log -O $ONTO_DIRNAME.rdf "${onto_url}/?apikey=$PASSWORD"
+  wget -O $ONTO_DIRNAME.rdf -a download.log "${onto_url}/?apikey=$PASSWORD"
 done

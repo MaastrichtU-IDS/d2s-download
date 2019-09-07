@@ -8,7 +8,9 @@ cd $1
 rm -rf *
 
 # BindingDB https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes
-wget -a download.log -O index.html "https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes"
+wget -N -a download.log "https://www.bindingdb.org/bind/chemsearch/marvin/SDFdownload.jsp?all_download=yes"
+
+mv "SDFdownload.jsp?all_download=yes" index.html
 
 # In the html file: downloads/BindingDB_All_2018m6.tsv.zip">BindingDB_All_2018m6.tsv.zip</a> ( 254.56 MB, updated 2018-07-01 )</li>
 array=( $(cat index.html | sed -r -n 's/.*>(BindingDB_All_[^"]*?.\.tsv\.zip).*/\1/p') )

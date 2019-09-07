@@ -12,7 +12,7 @@ rm -rf *
 BASE_URL=http://rsync.wwpdb.org/pub/pdb/data/structures/divided/XML/
 
 # A csv file and release.html
-wget -a download.log $BASE_URL
+wget -N -a download.log $BASE_URL
 
 dir_array=( $(cat index.html | sed -r -n 's/.*href="([a-zA-Z0-9]*\/)".*/\1/p') )
 
@@ -24,13 +24,13 @@ do
   echo "Downloading... ${dir}"
   mkdir -p ${dir}
   cd ${dir}
-  wget -a download.log -O index.html  $BASE_URL${dir}
+  wget -O index.html -a download.log  $BASE_URL${dir}
   file_array=( $(cat index.html | sed -r -n 's/.*href="([a-zA-Z0-9]*?\.xml\.gz)".*/\1/p') )
 
   for file in "${file_array[@]}"
   do
     echo "Download file... $BASE_URL${dir}${file}"
-    wget -a download.log $BASE_URL${dir}${file}
+    wget -N -a download.log $BASE_URL${dir}${file}
   done
 done
 

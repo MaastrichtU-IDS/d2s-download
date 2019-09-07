@@ -13,10 +13,10 @@ rm -rf *
 # CHEMICAL NETWORK
 
 # Chemical-chemical links
-wget -a download.log http://stitch.embl.de/download/chemical_chemical.links.v5.0.tsv.gz
+wget -N -a download.log http://stitch.embl.de/download/chemical_chemical.links.v5.0.tsv.gz
 
 # Protein-chemical links. Taking only for human specie at the moment to make it lighter (too big otherwise)
-wget -a download.log http://stitch.embl.de/download/protein_chemical.links.detailed.v5.0/9606.protein_chemical.links.detailed.v5.0.tsv.gz
+wget -N -a download.log http://stitch.embl.de/download/protein_chemical.links.detailed.v5.0/9606.protein_chemical.links.detailed.v5.0.tsv.gz
 # Complete 30G version: wget -a download.log http://stitch.embl.de/download/protein_chemical.links.v5.0.tsv.gz
 
 # chemical-protein network data (incl. distinction: direct vs. interologs)
@@ -35,13 +35,13 @@ wget -a download.log http://stitch.embl.de/download/protein_chemical.links.detai
 #wget -a download.log http://stitch.embl.de/download/chemicals.v5.0.tsv.gz
 
 # InChIKeys for STITCH compounds (for 'flat' and stereo-specific compounds) (1.3G)
-wget -a download.log http://stitch.embl.de/download/chemicals.inchikeys.v5.0.tsv.gz
+wget -N -a download.log http://stitch.embl.de/download/chemicals.inchikeys.v5.0.tsv.gz
 
 # aliases (synonyms) for chemicals (1.5G)
 #wget -a download.log http://stitch.embl.de/download/chemical.aliases.v5.0.tsv.gz
 
 # links to other chemical databases (2G)
-wget -a download.log http://stitch.embl.de/download/chemical.sources.v5.0.tsv.gz
+wget -N -a download.log http://stitch.embl.de/download/chemical.sources.v5.0.tsv.gz
 
 
 

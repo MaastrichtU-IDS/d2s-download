@@ -9,4 +9,4 @@ cd $1
 rm -rf *
 
 # NCBI Bioproject 
-wget -a download.log "ftp://ftp.ncbi.nlm.nih.gov/bioproject/bioproject.xml"
+wget -N -a download.log "ftp://ftp.ncbi.nlm.nih.gov/bioproject/bioproject.xml"

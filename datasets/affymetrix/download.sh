@@ -7,10 +7,10 @@ mkdir -p $1
 cd $1
 rm -rf *
 
-wget -a download.log -O index.html https://www.thermofisher.com/nl/en/home/life-science/microarray-analysis/microarray-data-analysis/genechip-array-annotation-files.html
+wget -N -a download.log https://www.thermofisher.com/nl/en/home/life-science/microarray-analysis/microarray-data-analysis/genechip-array-annotation-files.html
 
 # Extract download links from HTML
-array=( $(cat index.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
+array=( $(cat genechip-array-annotation-files.html | sed -r -n 's/.*href="((http|ftp)[^"]*?(\.zip|\.gz|\.csv|\.tsv|\.tar)).*/\1/p') )
 
 # Log in to the server. This only needs to be done once.
 #wget -a download.log --save-cookies cookies.txt \
