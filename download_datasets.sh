@@ -81,5 +81,5 @@ echo " "
 echo "Download complete!"
 echo "Check out failed download at $WORKING_PATH/download_failed.log"
 echo "---------------------------------"
-echo "    Failed download:"
+echo "    If downloads have failed, they will be displayed below."
 cat download_failed.log
