@@ -54,7 +54,7 @@ unzip -o \*.zip
 
 
 #GZIP recusive in subdir
-find . -name "*.gz" -exec gzip -d  {} +
+find . -name "*.gz" -exec gzip -d  {} + >
 
 
 # UNTAR recursively all files in actual dir
