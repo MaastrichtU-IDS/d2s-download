@@ -10,7 +10,10 @@ cd $1
 # https://www.pharmgkb.org/downloads
 BASE_URI=https://api.pharmgkb.org/v1/download/file/data/
 
-array=( "relationships.zip" "pathways-biopax.zip" "annotations.zip" "clinicalVariants.zip" "genes.zip" "variants.zip" "phenotypes.zip" "drugs.zip" "chemicals.zip" )
+#array=( "relationships.zip" "pathways-biopax.zip" "annotations.zip" "clinicalVariants.zip" "genes.zip" "variants.zip" "phenotypes.zip" "drugs.zip" "chemicals.zip" )
+
+#Execlude genes.zip until implementing the solution
+array=( "relationships.zip" "pathways-biopax.zip" "annotations.zip" "clinicalVariants.zip" "variants.zip" "phenotypes.zip" "drugs.zip" "chemicals.zip" )
 
 # Original: drugs|genes|diseases|pathways|relationships|annotations|rsid
 # Not downloaded: pathways-tsv.zip, dosingGuidelines.json.zip, drugLabels.zip
